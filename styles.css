@@ -387,3 +387,10 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
  .form .promo-input input,#booking-form #promo-code{width:100%;min-height:3.75rem;font-size:1.35rem;padding:1rem 1.1rem;box-sizing:border-box;color:#fff7e0;-webkit-text-fill-color:#fff7e0;background:#101116;border:2px solid rgba(232,163,61,.7)}
  .form .promo-input .btn{width:100%;min-height:3.5rem;font-size:1.2rem;padding:1rem}
 }
+
+/* Footer social link */
+.footer .social{margin:1rem 0 0}
+.footer-grid a.social-link{display:inline-flex;align-items:center;gap:.6rem;padding:.55rem 1rem .55rem .8rem;border:1.5px solid rgba(232,163,61,.55);border-radius:999px;color:#f6d57a;background:linear-gradient(135deg,rgba(22,23,28,.9),rgba(74,58,27,.55));font-weight:600;font-size:.92rem;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s,color .2s}
+.footer-grid a.social-link:hover{color:#1a1200;border-color:#f6d57a;background:linear-gradient(135deg,#f6d57a,#d9a03a 55%,#b8862f);box-shadow:0 6px 18px rgba(217,160,58,.35);transform:translateY(-2px)}
+.footer-grid a.social-link svg{flex:none}
+@media (max-width:760px){.footer .social{display:flex;justify-content:center}}
