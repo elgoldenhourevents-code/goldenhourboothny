@@ -244,3 +244,6 @@ footer,.footer{background:linear-gradient(90deg,#1a0b3b,#4a1058)}
 .request-booking{text-align:center;margin:0 0 2rem;border-color:rgba(201,162,75,.45)}
 .request-booking h2{margin:0 0 .5rem;color:var(--accent2)}
 .request-booking p{margin:0 auto 1.25rem;max-width:520px;color:var(--muted)}
+
+/* book page not-included items */
+.book-prices li.no{color:rgba(185,194,214,.45);text-decoration:line-through}
