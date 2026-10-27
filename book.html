@@ -181,6 +181,7 @@ f.addEventListener('submit',function(e){e.preventDefault();if(f.botcheck&&f.botc
  var btn=document.getElementById('send-btn');if(btn.disabled)return;
  btn.disabled=true;btn.textContent='Sending\u2026';st.textContent='Sending your details\u2026';
  var data={},addons=[];new FormData(f).forEach(function(v,k){if(k==='addons'){addons.push(v)}else if(k!=='botcheck'){data[k]=v}});data.addons=addons.join(', ')||'None';
+ try{var dp=(data.event_date||'').split('-'),mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+dp[1]-1];var ds=mo?mo+' '+(+dp[2])+', '+dp[0]:data.event_date;data.subject='Booking request: '+String(data.name||'').slice(0,60)+' \u2013 '+ds+(data.package?' ('+data.package+')':'')}catch(x){}
  var ac=window.AbortController?new AbortController():null,to=setTimeout(function(){ac&&ac.abort()},30000);
  function fail(){clearTimeout(to);btn.disabled=false;btn.textContent='Send Details';
   var lines=[];new FormData(f).forEach(function(v,k){if(v&&k!=='access_key'&&k!=='subject'&&k!=='from_name'&&k!=='botcheck')lines.push(k.replace(/_/g,' ')+': '+v)});
