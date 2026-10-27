@@ -239,3 +239,11 @@ footer,.footer{background:linear-gradient(90deg,#1a0b3b,#4a1058)}
 .review-cta h3{margin:.2rem 0 .6rem;font-size:1.5rem}
 .review-cta p{margin:0 auto 1.2rem;max-width:46ch}
 .review-cta .review-note{font-size:.85rem;opacity:.75;margin:1rem auto 0}
+
+/* header logo */
+.nav-inner{height:100px}
+.nav .brand img.brand-logo{height:84px;width:auto;border-radius:12px;background:#fff;display:block;animation:none}
+.nav .brand:hover img.brand-logo{transform:none}
+.nav-links{top:100px}
+@media(max-width:900px){.nav-links{top:100px}}
+@media(max-width:520px){.nav-inner{height:88px}.nav .brand img.brand-logo{height:72px;width:auto}.nav-links{top:88px}}
