@@ -8,7 +8,8 @@ const form=document.getElementById('booking-form'),status=form.querySelector('.f
 document.querySelectorAll('[data-package]').forEach(b=>b.addEventListener('click',e=>{form.package.value=b.dataset.package;
   e.preventDefault();
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const flash=()=>{form.classList.remove('flash-glow');void form.offsetWidth;form.classList.add('flash-glow');setTimeout(()=>form.classList.remove('flash-glow'),1900);};
+  const pkg=(b.dataset.package||'gold').toLowerCase();
+  const flash=()=>{const cls='flash-glow-'+pkg;form.classList.remove('flash-glow','flash-glow-bronze','flash-glow-silver','flash-glow-gold');void form.offsetWidth;form.classList.add(cls);setTimeout(()=>form.classList.remove(cls),pkg==='gold'?1700:1900);};
   if(reduce){document.getElementById('book').scrollIntoView({behavior:'auto'});flash();return;}
   const pk=(b.dataset.package||'').toLowerCase();
   b.classList.remove('click-flash-bronze','click-flash-silver','click-flash-gold');void b.offsetWidth;

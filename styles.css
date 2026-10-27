@@ -310,3 +310,12 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 #book>.container.rise-prep{opacity:0;transform:translateY(90px)}
 #book>.container.rise-go{transition:opacity .55s ease-out,transform .7s cubic-bezier(.2,.8,.25,1)}
 @media (prefers-reduced-motion:reduce){#book>.container.rise-prep{opacity:1;transform:none}}
+
+/* form glow matches the clicked package */
+@keyframes gh-form-bronze{0%{box-shadow:0 0 0 0 rgba(205,127,50,0)}25%{box-shadow:0 0 0 2px rgba(205,127,50,.9),0 0 34px rgba(205,127,50,.65)}100%{box-shadow:0 0 0 0 rgba(205,127,50,0)}}
+@keyframes gh-form-silver{0%{box-shadow:0 0 0 0 rgba(215,219,227,0)}25%{box-shadow:0 0 0 2px rgba(225,229,237,.9),0 0 34px rgba(225,229,237,.65)}100%{box-shadow:0 0 0 0 rgba(215,219,227,0)}}
+@keyframes gh-form-gold{0%{box-shadow:0 0 0 0 rgba(240,200,100,0)}12%{box-shadow:0 0 0 3px rgba(255,225,130,1),0 0 50px rgba(255,210,90,.9)}26%{box-shadow:0 0 0 1px rgba(240,200,100,.3),0 0 10px rgba(240,200,100,.2)}42%{box-shadow:0 0 0 3px rgba(255,225,130,1),0 0 56px rgba(255,210,90,.95)}58%{box-shadow:0 0 0 1px rgba(240,200,100,.3),0 0 10px rgba(240,200,100,.2)}74%{box-shadow:0 0 0 2px rgba(255,225,130,.85),0 0 40px rgba(255,210,90,.7)}100%{box-shadow:0 0 0 0 rgba(240,200,100,0)}}
+#booking-form.flash-glow-bronze{animation:gh-form-bronze 1.9s ease-out;border-radius:14px}
+#booking-form.flash-glow-silver{animation:gh-form-silver 1.9s ease-out;border-radius:14px}
+#booking-form.flash-glow-gold{animation:gh-form-gold 1.7s ease-out;border-radius:14px}
+@media (prefers-reduced-motion:reduce){#booking-form.flash-glow-bronze,#booking-form.flash-glow-silver,#booking-form.flash-glow-gold{animation:none}}
