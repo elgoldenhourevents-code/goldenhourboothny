@@ -291,3 +291,4 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 .btn[data-package="Gold"]:hover{background:linear-gradient(180deg,#f6d57a,#d9a93a);border-color:#f0c864;color:#2a1c00;box-shadow:0 0 0 2px rgba(240,200,100,.6),0 0 24px rgba(240,200,100,.7);transform:translateY(1px) scale(.98)}
 .btn[data-package]:active{transform:translateY(3px) scale(.96)}
 @media (prefers-reduced-motion:reduce){.btn[data-package]{transition:none}}
+.price-card.featured .btn[data-package]{animation:none}
