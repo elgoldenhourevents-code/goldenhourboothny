@@ -291,10 +291,31 @@
           </select>
         </label>
         <label>Package
-          <select name="package"><option value="">Not sure yet</option><option>Bronze</option><option>Silver</option><option>Gold</option></select>
+          <select name="package"><option value="">Not sure yet</option><option value="Bronze" data-price="250">Bronze</option><option value="Silver" data-price="449">Silver</option><option value="Gold" data-price="849">Gold</option></select>
         </label>
       </div>
+      <fieldset class="addon-field">
+        <legend>Add-ons <span class="small">(optional)</span></legend>
+        <div class="addon-checks">
+          <label class="check"><input type="checkbox" name="addons" value="Extra hour" data-price="99"> <span>Extra hour</span> <b>+$99</b></label>
+          <label class="check"><input type="checkbox" name="addons" value="Premium backdrop" data-price="125"> <span>Premium backdrop</span> <b>+$125</b></label>
+          <label class="check"><input type="checkbox" name="addons" value="Scrapbook guest book" data-price="149"> <span>Scrapbook guest book</span> <b>+$149</b></label>
+          <label class="check"><input type="checkbox" name="addons" value="Drop-off booth" data-price="299"> <span>Drop-off booth</span> <b>+$299</b></label>
+        </div>
+      </fieldset>
       <label>Venue / town &amp; guest count<textarea name="message" rows="3" placeholder="e.g. Peekskill, ~120 guests, interested in the scrapbook add-on"></textarea></label>
+      <div class="promo-row">
+        <label>Promo code
+          <span class="promo-input"><input type="text" name="promo_code" id="promo-code" placeholder="Enter code" autocomplete="off" autocapitalize="characters" maxlength="30"><button type="button" class="btn btn-sm btn-ghost" id="promo-apply">Apply</button></span>
+        </label>
+        <p class="promo-msg small" id="promo-msg" role="status" aria-live="polite"></p>
+      </div>
+      <div class="estimate" id="estimate" aria-live="polite">
+        <div class="est-lines" id="est-lines">Estimated total: <b>choose a package</b></div>
+        <div class="est-total" id="est-total"></div>
+        <p class="small est-note">Before any sales tax. We&rsquo;ll confirm the final price in your quote.</p>
+      </div>
+      <input type="hidden" name="estimated_total" id="estimated_total" value="">
       <button type="submit" class="btn btn-lg">Get My Quote</button>
       <p class="form-status" role="status" aria-live="polite"></p>
       <p class="small">Prefer email? <a id="mailto-fallback" href="mailto:info@goldenhourboothny.com?subject=Photo%20Booth%20Booking%20Inquiry">Email us directly</a>.</p>

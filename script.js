@@ -80,3 +80,35 @@ document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')
     var h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
   },{passive:true});
 })();
+
+// Booking form: add-ons, promo code and running total
+(function(){
+  const f=document.getElementById('booking-form');if(!f)return;
+  const lines=document.getElementById('est-lines'),tot=document.getElementById('est-total'),hid=document.getElementById('estimated_total');
+  const promoIn=document.getElementById('promo-code'),promoBtn=document.getElementById('promo-apply'),promoMsg=document.getElementById('promo-msg');
+  // Add real promo codes here, e.g. SAVE10:{type:'percent',value:10} or TAKE50:{type:'amount',value:50}
+  const PROMOS={};
+  let applied=null;
+  const money=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});
+  function calc(){
+    const opt=f.package.selectedOptions[0],base=+(opt&&opt.dataset.price||0);
+    const adds=[...f.querySelectorAll('input[name="addons"]:checked')];
+    if(!base){lines.innerHTML=adds.length?'Add-ons selected: <b>'+money(adds.reduce((a,c)=>a+ +c.dataset.price,0))+'</b> &mdash; choose a package for your total':'Estimated total: <b>choose a package</b>';tot.textContent='';hid.value='';return;}
+    let sum=base,html='<div><span>'+opt.value+' package</span><span>'+money(base)+'</span></div>';
+    adds.forEach(c=>{const p=+c.dataset.price;sum+=p;html+='<div><span>'+c.value+'</span><span>+'+money(p)+'</span></div>';});
+    if(applied&&PROMOS[applied]){const d=PROMOS[applied],off=d.type==='percent'?sum*d.value/100:Math.min(d.value,sum);sum-=off;html+='<div class="disc"><span>Promo '+applied+'</span><span>&minus;'+money(off)+'</span></div>';}
+    lines.innerHTML=html;tot.innerHTML='<span>Estimated total</span><b>'+money(sum)+'</b>';hid.value=money(sum);
+  }
+  function applyPromo(){
+    const c=promoIn.value.trim().toUpperCase();applied=null;
+    if(!c){promoMsg.textContent='';calc();return;}
+    if(PROMOS[c]){applied=c;promoMsg.textContent='Code '+c+' applied.';promoMsg.className='promo-msg small ok';}
+    else{promoMsg.textContent='Code '+c+' noted. We\u2019ll apply it when we confirm your quote.';promoMsg.className='promo-msg small';}
+    calc();
+  }
+  promoBtn.addEventListener('click',applyPromo);
+  promoIn.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();applyPromo();}});
+  f.addEventListener('change',calc);
+  f.addEventListener('reset',()=>setTimeout(()=>{applied=null;promoMsg.textContent='';calc();},0));
+  calc();
+})();
