@@ -8,4 +8,4 @@ Slot 3          assets/instant-print-couple-props.jpg              https://www.p
 Slot 4 (tall-d) assets/wedding-couple-holding-instant-prints.jpg   https://www.pexels.com/photo/bride-and-groom-holding-polaroid-photos-17669070/  Photographer: Feyza Yildirim
 Slot 5 (tall)   assets/guest-mustache-glasses-props-gold-fringe.jpg https://www.pexels.com/photo/a-man-holding-wine-glass-and-eyeglasses-with-moustache-paper-cut-outs-6519369/  Photographer: RDNE Stock project
 Slot 6          assets/photo-booth-strip-print.jpg                 https://www.pexels.com/photo/flatlay-4550433/  Photographer: cottonbro studio
-Share image     assets/og-image.jpg = 1200x630 crop of slot 2 photo (10578902, cottonbro studio)
+Share image     assets/og-logo-first.jpg = logo-only card (generated)
