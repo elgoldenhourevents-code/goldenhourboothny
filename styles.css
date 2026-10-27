@@ -379,3 +379,11 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 .form .promo-input input::placeholder{color:#a9a49a;-webkit-text-fill-color:#a9a49a;font-weight:500;font-size:1.05rem;opacity:1}
 .form .promo-input input:focus{border-color:#f6d57a;box-shadow:0 0 0 3px rgba(246,213,122,.3)}
 .form .promo-input .btn{min-height:3.4rem;font-size:1.1rem;padding:.95rem 1.8rem}
+
+/* Promo box on phones: stack, full width, big */
+@media (max-width:768px){
+ .form .promo-row{padding:1rem;min-width:0;max-width:100%;box-sizing:border-box}
+ .form .promo-input{flex-direction:column;align-items:stretch;gap:.8rem;min-width:0}
+ .form .promo-input input,#booking-form #promo-code{width:100%;min-height:3.75rem;font-size:1.35rem;padding:1rem 1.1rem;box-sizing:border-box;color:#fff7e0;-webkit-text-fill-color:#fff7e0;background:#101116;border:2px solid rgba(232,163,61,.7)}
+ .form .promo-input .btn{width:100%;min-height:3.5rem;font-size:1.2rem;padding:1rem}
+}
