@@ -48,7 +48,7 @@
       <a href="/#gallery">Gallery</a>
       <a href="/#area">Service Area</a>
       <a href="/#faq">FAQ</a>
-      <a href="/book" aria-current="page">Book</a>
+      <a href="/book" aria-current="page">Book Your Date</a>
       <a href="tel:+19148178018" class="nav-phone"><span class="np-num">(914) 817-8018</span><small class="np-note">Call or text anytime</small></a>
     </nav>
   </div>
@@ -94,17 +94,20 @@
         <label>Start Time<span class="req" aria-hidden="true"> *</span><input type="time" name="start_time" required></label>
       </div>
       <div class="row">
+        <label>End Time<span class="req" aria-hidden="true"> *</span><input type="time" name="end_time" required></label>
         <label>Event Type<span class="req" aria-hidden="true"> *</span>
           <select name="event_type" required>
             <option value="">Select one&hellip;</option>
             <option>Wedding</option><option>Birthday</option><option>Corporate</option><option>Graduation</option><option>Prom</option><option>Other</option>
           </select>
         </label>
-        <label>Guest Count<span class="req" aria-hidden="true"> *</span><input type="number" name="guest_count" min="1" inputmode="numeric" required></label>
       </div>
+      <label>Guest Count<span class="req" aria-hidden="true"> *</span><input type="number" name="guest_count" min="1" inputmode="numeric" required></label>
+      <label>Venue Name<span class="opt"> (optional)</span><input type="text" name="venue" placeholder="e.g. Garrison Art Center"></label>
+      <label>Event Address<span class="req" aria-hidden="true"> *</span><input type="text" name="address" autocomplete="street-address" required placeholder="Street address"></label>
       <div class="row">
-        <label>Venue Name<span class="req" aria-hidden="true"> *</span><input type="text" name="venue" required placeholder="e.g. Garrison Art Center"></label>
-        <label>Town<span class="req" aria-hidden="true"> *</span><input type="text" name="town" required placeholder="e.g. Garrison, NY"></label>
+        <label>City<span class="req" aria-hidden="true"> *</span><input type="text" name="city" autocomplete="address-level2" required placeholder="e.g. Garrison"></label>
+        <label>Zip / Post Code<span class="req" aria-hidden="true"> *</span><input type="text" name="zip" autocomplete="postal-code" inputmode="numeric" required maxlength="10" placeholder="e.g. 10524"></label>
       </div>
       <label>Package<span class="req" aria-hidden="true"> *</span>
         <select name="package" id="package" required>
@@ -128,7 +131,7 @@
         <label>Phone<span class="req" aria-hidden="true"> *</span><input type="tel" name="phone" autocomplete="tel" required></label>
       </div>
       <label>Email<span class="req" aria-hidden="true"> *</span><input type="email" name="email" autocomplete="email" required></label>
-      <label>Anything else we should know? (optional)<textarea name="notes" rows="3"></textarea></label>
+      <label>Tell us more about your event<span class="opt"> (optional)</span><textarea name="notes" rows="4" placeholder="Theme, schedule, special requests, anything that helps us plan"></textarea></label>
       <input type="hidden" name="estimated_total" id="estimated_total" value="">
       <p class="notice" style="margin-top:0"><strong>Please note:</strong> your date is not guaranteed until you receive a confirmation from us. We check every request by hand, and we&rsquo;ll email you to confirm.</p>
       <p class="small req-note"><span class="req" aria-hidden="true">*</span> Required field</p>
