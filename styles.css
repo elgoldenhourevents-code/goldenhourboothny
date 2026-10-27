@@ -397,3 +397,38 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 
 /* Service area "etc." pill */
 .towns li.towns-etc{border-style:dashed;border-color:rgba(232,163,61,.45);color:#f6d57a;font-style:italic;font-weight:500;background:rgba(22,23,28,.4)}
+
+/* Cookie banner */
+.cookie-banner{position:fixed;left:50%;bottom:1rem;transform:translate(-50%,140%);z-index:9999;width:min(720px,calc(100% - 1.5rem));display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.1rem;background:#16171c;color:#e9e6dd;border:1.5px solid rgba(217,160,58,.65);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.55);font-size:.92rem;transition:transform .4s ease,opacity .4s ease;opacity:0}
+.cookie-banner.show{transform:translate(-50%,0);opacity:1}
+.cookie-banner p{margin:0;line-height:1.4}.cookie-banner a{color:#f6d57a;text-decoration:underline}
+.cookie-actions{display:flex;gap:.6rem;flex:none}
+.cookie-banner button{font:inherit;font-weight:700;border-radius:999px;padding:.6rem 1.3rem;min-height:44px;cursor:pointer;border:1.5px solid rgba(217,160,58,.65);background:transparent;color:#f6d57a}
+.cookie-banner button.cookie-accept{background:linear-gradient(135deg,#f6d57a,#d9a03a 55%,#b8862f);color:#1a1200;border-color:#d9a03a}
+.cookie-banner button:hover{filter:brightness(1.12)}
+@media (max-width:560px){.cookie-banner{flex-direction:column;align-items:stretch;text-align:center}.cookie-actions{justify-content:center}.cookie-actions button{flex:1}}
+@media (prefers-reduced-motion:reduce){.cookie-banner{transition:none}}
+
+/* Legal pages */
+.legal{padding:3rem 0 4rem}.legal .container{max-width:820px}
+.legal h1{font-size:clamp(2rem,5vw,3rem);margin:.2rem 0 .4rem}
+.legal .updated{color:var(--muted);margin:0 0 2rem}
+.legal h2{font-size:1.35rem;margin:2rem 0 .5rem;color:#f6d57a}
+.legal p,.legal li{color:#d8d5cc;line-height:1.65}
+.legal ul{padding-left:1.2rem}.legal a{color:#f6d57a}
+.legal .box{background:rgba(217,160,58,.1);border:1px solid rgba(217,160,58,.4);border-radius:12px;padding:1rem 1.2rem;margin:1.2rem 0}
+.footer .copy a{color:inherit;text-decoration:underline;text-underline-offset:3px}.footer .copy a:hover{color:#f6d57a}
+
+/* Header call button on phones */
+.nav-call{display:none}
+@media (max-width:900px){
+  .nav-call{display:inline-flex;align-items:center;gap:.4rem;margin-left:auto;margin-right:.5rem;padding:.45rem .8rem;border:1.5px solid rgba(217,160,58,.65);border-radius:999px;color:#f6d57a;text-decoration:none;font-weight:700;font-size:.9rem;white-space:nowrap;min-height:40px}
+  .nav-call svg{flex:none}
+}
+@media (max-width:380px){.nav-call span{display:none}.nav-call{padding:.55rem}}
+@media (max-width:520px){
+  .nav-inner .brand-name{font-size:.8rem;white-space:nowrap}
+  .nav-inner .brand img{width:28px;height:auto}
+  .nav-call{padding:.4rem .6rem;font-size:.78rem;gap:.3rem;margin-right:.2rem}
+  .nav-call svg{width:14px;height:14px}
+}
