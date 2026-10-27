@@ -319,3 +319,4 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 #booking-form.flash-glow-silver{animation:gh-form-silver 1.9s ease-out;border-radius:14px}
 #booking-form.flash-glow-gold{animation:gh-form-gold 1.7s ease-out;border-radius:14px}
 @media (prefers-reduced-motion:reduce){#booking-form.flash-glow-bronze,#booking-form.flash-glow-silver,#booking-form.flash-glow-gold{animation:none}}
+.footer-brand{margin:0 0 .8rem}
