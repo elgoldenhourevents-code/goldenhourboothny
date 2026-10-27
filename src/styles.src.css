@@ -503,3 +503,40 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 /* trust strip: four items */
 .trust .trust-grid{grid-template-columns:repeat(4,minmax(0,1fr));max-width:1000px;margin-inline:auto}
 @media (max-width:760px){.trust .trust-grid{grid-template-columns:1fr 1fr}}
+/* ===== polish pass ===== */
+/* hover states */
+.form input:hover,.form select:hover,.form textarea:hover{border-color:rgba(217,160,58,.65)}
+details{transition:border-color .25s,background-color .25s}
+details:hover{border-color:rgba(217,160,58,.5);background-color:#2b2a2c}
+details summary{cursor:pointer;transition:color .2s}
+details summary:hover{color:#f6d57a}
+.contact-list a,.footer a,.copy a,.small a,.notice a,.note a{transition:color .2s,text-decoration-color .2s}
+.contact-list a:hover,.footer a:hover,.copy a:hover,.small a:hover,.notice a:hover,.note a:hover{color:#f6d57a;text-decoration-color:#f6d57a}
+.check{transition:border-color .2s,background-color .2s}
+.check:hover{border-color:rgba(217,160,58,.65);background-color:rgba(217,160,58,.1);cursor:pointer}
+.mb-call,.mb-book{transition:filter .2s,transform .2s,background-color .2s}
+.mb-call:hover,.mb-book:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.mb-call:hover{background:rgba(217,160,58,.15)}
+.lb-close,.lb-prev,.lb-next,.nav-toggle{transition:background-color .2s,color .2s,border-color .2s}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover,.nav-toggle:hover{background:rgba(217,160,58,.25);color:#f6d57a;border-color:#d9a03a}
+.btn.btn-ghost:not([data-package]):hover{border-color:#f6d57a;color:#f6d57a}
+/* keyboard focus */
+:focus-visible{outline:2px solid #f6d57a;outline-offset:3px;border-radius:6px}
+.btn:focus-visible,.mb-book:focus-visible{outline:2px solid #fff3c4;outline-offset:3px;box-shadow:0 0 0 5px rgba(217,160,58,.45)}
+.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:2px solid #f6d57a;outline-offset:2px;border-radius:10px}
+.check:focus-within{border-color:#f6d57a;box-shadow:0 0 0 3px rgba(246,213,122,.3)}
+details:focus-within{border-color:#d9a03a}
+details summary:focus-visible{outline:2px solid #f6d57a;outline-offset:4px;color:#f6d57a}
+.gallery .g:focus-visible{outline-offset:-3px}
+.skip:focus{background:#f6d57a;color:#1a1200;border-radius:8px;font-weight:700}
+/* long words and phrases */
+h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
+.footer,.footer *,.contact-list li,.towns li,.form label,.form legend,.form .field-error,.form .check,.faq details p,summary,.estimate,.promo-msg,.notice,.note{overflow-wrap:anywhere;min-width:0}
+.towns li{max-width:100%;white-space:normal}
+.footer-grid>div,.row>label,.contact-list{min-width:0}
+.form input,.form select,.form textarea{max-width:100%}
+.date-check{transition:border-color .25s,box-shadow .25s}
+.date-check:hover{border-color:rgba(217,160,58,.65)}
+.date-check:focus-within{border-color:#f6d57a;box-shadow:0 0 0 3px rgba(246,213,122,.25)}
+.date-check input:focus-visible,.date-check select:focus-visible{outline:none}
+.form .promo-input input:hover{border-color:#f6d57a}
