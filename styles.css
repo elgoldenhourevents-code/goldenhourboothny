@@ -366,3 +366,10 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 #booking-form .est-note{margin:.45rem 0 0;color:var(--muted)}
 @media(max-width:560px){.addon-checks{grid-template-columns:1fr}}
 .promo-input input{flex:1 1 auto;width:auto;min-width:0}.promo-input .btn{flex:none}
+/* Promo code box: standard form-field size */
+.form .promo-input{display:flex;align-items:stretch;gap:.7rem;margin-top:.35rem}
+.form .promo-input input{flex:1 1 auto;width:auto;min-width:0;margin-top:0;padding:.75rem .9rem;font-size:1rem;text-transform:uppercase;letter-spacing:.08em}
+.form .promo-input .btn{flex:none;width:auto;margin:0;padding:.75rem 1.6rem;font-size:1rem;min-width:7rem;border-radius:10px;border:2px solid var(--accent);color:#1a1200;background-image:linear-gradient(135deg,#f6d57a,#d9a03a 55%,#b8862f)}
+.form .promo-row{padding:1rem 1.1rem;border:1px solid rgba(232,163,61,.3);border-radius:12px;background:rgba(232,163,61,.07);margin:.2rem 0 1rem}
+.form .promo-row label{margin-bottom:0;font-size:.95rem}
+.form .promo-msg{font-size:.9rem;margin-top:.5rem}
