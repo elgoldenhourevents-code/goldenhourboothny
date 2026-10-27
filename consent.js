@@ -1,6 +1,6 @@
 /* Cookie consent + Google Analytics (loads only after Accept) */
 (function(){
-  var GA_ID=''; // Google Analytics 4 Measurement ID, e.g. G-XXXXXXXXXX
+  var GA_ID='G-HVCZEH6WE8'; // Google Analytics 4 Measurement ID, e.g. G-XXXXXXXXXX
   var KEY='gh_cookie_consent';
   function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
   function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
