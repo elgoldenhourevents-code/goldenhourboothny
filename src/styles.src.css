@@ -563,3 +563,16 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 /* add-on icons */
 .addons li>span.ad-ico{width:52px;height:52px;font-size:30px;color:#e8b84d;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(246,213,122,.16),rgba(217,160,58,.05));border:1px solid rgba(217,160,58,.4);transition:color .25s,border-color .25s,box-shadow .25s}
 .addons li:hover>span.ad-ico{color:#f6d57a;border-color:#f6d57a;box-shadow:0 6px 18px rgba(217,160,58,.25);animation:none}
+/* events: refined in-place hover (no movement) */
+.events .event{position:relative;overflow:hidden;isolation:isolate;transition:border-color .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1),background-color .5s}
+.events .event::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(120% 90% at 50% 0%,rgba(246,213,122,.2),rgba(217,160,58,.06) 45%,transparent 70%);transition:opacity .6s cubic-bezier(.22,1,.36,1)}
+.events .event::after{content:"";position:absolute;left:50%;bottom:0;height:2px;width:56%;transform:translateX(-50%) scaleX(0);transform-origin:center;background:linear-gradient(90deg,transparent,#f6d57a,transparent);transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.events .event .ev-ico{transform:none;transition:background .5s cubic-bezier(.22,1,.36,1),color .5s cubic-bezier(.22,1,.36,1),border-color .5s,box-shadow .6s cubic-bezier(.22,1,.36,1),scale .6s cubic-bezier(.22,1,.36,1)}
+.events .event .ev-ico .gi{transition:filter .5s}
+.events .event h3{transition:color .5s}
+.events .event:hover,.events .event:active{transform:none;border-color:rgba(246,213,122,.6);box-shadow:0 14px 34px rgba(0,0,0,.4),inset 0 0 0 1px rgba(246,213,122,.12)}
+.events .event:hover::before,.events .event:active::before{opacity:1}
+.events .event:hover::after,.events .event:active::after{transform:translateX(-50%) scaleX(1)}
+.events .event:hover .ev-ico,.events .event:active .ev-ico{display:inline-flex;transform:none;animation:none;scale:1.07;color:#1a1408;background:linear-gradient(145deg,#f6d57a,#d9a03a 60%,#b8862f);border-color:#f6d57a;box-shadow:0 0 0 6px rgba(246,213,122,.12),0 8px 24px rgba(217,160,58,.35)}
+.events .event:hover h3,.events .event:active h3{color:#f6d57a}
+@media (prefers-reduced-motion:reduce){.events .event,.events .event::before,.events .event::after,.events .event .ev-ico,.events .event h3{transition:none}.events .event:hover .ev-ico{scale:1}}
