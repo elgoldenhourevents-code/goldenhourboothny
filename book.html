@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book Your Date | Golden Hour Booth NY</title>
-<meta name="description" content="Book Golden Hour Booth NY online. Choose your package, send your event details and pay the $150 deposit to hold your date. Photo booth rentals in Peekskill, Garrison, Westchester and the Hudson Valley.">
+<title>Book a Photo Booth | Golden Hour Booth NY, Peekskill</title>
+<meta name="description" content="Book a photo booth online: pick your package, send your event details and pay the $150 deposit to hold your date. Serving Peekskill and the Hudson Valley.">
 <meta name="format-detection" content="telephone=no,address=no,email=no">
 <meta name="theme-color" content="#e8a33d">
 <link rel="canonical" href="https://goldenhourboothny.com/book">
@@ -17,7 +17,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-first-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-first-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-first.png">
-<link rel="stylesheet" href="/styles.css?v=fix1">
+<link rel="stylesheet" href="/styles.css?v=promo1">
 <style>
 .book-hero{padding:3rem 0 1rem;text-align:center}.book-hero p{color:var(--muted);max-width:640px;margin:.5rem auto 0}
 .steps-mini{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:center;list-style:none;padding:0;margin:1.4rem 0 0;color:var(--accent2);font-weight:600;font-size:.95rem}
@@ -111,6 +111,12 @@
           <label class="check"><input type="checkbox" name="addons" value="Scrapbook guest book" data-price="149"> Scrapbook guest book (+$149)</label>
         </div>
       </fieldset>
+      <div class="promo-row">
+        <label for="promo-code">Promo code<span class="opt"> (optional, for first-time bookers)</span></label>
+        <span class="promo-input"><input type="text" name="promo_code" id="promo-code" placeholder="Enter code" autocomplete="off" autocapitalize="characters" maxlength="30"><button type="button" class="btn btn-sm btn-ghost" id="promo-apply">Apply</button></span>
+        <label class="check promo-first"><input type="checkbox" id="promo-first"> This is my first booking with Golden Hour Booth NY</label>
+        <p class="promo-msg small" id="promo-msg" role="status" aria-live="polite"></p>
+      </div>
       <p class="estimate" id="estimate" aria-live="polite">Estimated total: <b>choose a package</b> <span class="small">(before any sales tax; we&rsquo;ll confirm the final price)</span></p>
       <h3 class="form-step"><span>3</span>Your details</h3>
       <div class="row">
@@ -120,6 +126,7 @@
       <label>Email<span class="req" aria-hidden="true"> *</span><input type="email" name="email" autocomplete="email" required></label>
       <label>Tell us more about your event<span class="opt"> (optional)</span><textarea name="notes" rows="4" placeholder="Theme, schedule, special requests, anything that helps us plan"></textarea></label>
       <input type="hidden" name="estimated_total" id="estimated_total" value="">
+      <input type="hidden" name="promo_applied" id="promo-applied" value="">
       <p class="notice" style="margin-top:0"><strong>Please note:</strong> your date is not guaranteed until you receive a confirmation from us. We check every request by hand, and we&rsquo;ll email you to confirm.</p>
       <p class="small req-note"><span class="req" aria-hidden="true">*</span> Required field</p>
       <button type="submit" class="btn btn-lg" id="send-btn">Send Details</button>
@@ -171,9 +178,21 @@ if(p.get('type'))f.event_type.value=p.get('type');
  f.classList.add('rise-prep');
  requestAnimationFrame(function(){requestAnimationFrame(function(){f.classList.add('rise-go');f.classList.remove('rise-prep');
   setTimeout(function(){f.classList.add('flash-glow-'+pk);setTimeout(function(){f.classList.remove('flash-glow-'+pk,'rise-go')},2000)},650);});});})();
+var PROMOS={GOLDEN25:25},promoOn='';
 function total(){var s=f.package.selectedOptions[0],base=+(s&&s.dataset.price||0);if(!base){est.innerHTML='Estimated total: <b>choose a package</b>';f.estimated_total.value='';return}
  var t=base;f.querySelectorAll('input[name=addons]:checked').forEach(function(c){t+=+c.dataset.price});
- est.innerHTML='Estimated total: <b>$'+t+'</b> <span class="small">(before any sales tax; we\u2019ll confirm the final price)</span>';f.estimated_total.value='$'+t;}
+ var note='(before any sales tax; we\u2019ll confirm the final price)';
+ if(promoOn){var off=Math.min(PROMOS[promoOn],t);t-=off;note='(includes your $'+off+' promo discount, before any sales tax; we\u2019ll confirm the final price)'}
+ est.innerHTML='Estimated total: <b>$'+t+'</b> <span class="small">'+note+'</span>';f.estimated_total.value='$'+t;}
+function applyPromo(){var pc=document.getElementById('promo-code'),pm=document.getElementById('promo-msg'),pa=document.getElementById('promo-applied'),c=pc.value.trim().toUpperCase();
+ if(!c){promoOn='';pa.value='';pm.textContent='';pm.className='promo-msg small';total();return}
+ if(PROMOS.hasOwnProperty(c)&&!document.getElementById('promo-first').checked){promoOn='';pa.value='';pm.textContent='This code is for first-time bookers. Please tick the box above to confirm this is your first booking.';pm.className='promo-msg small'}
+ else if(PROMOS.hasOwnProperty(c)){promoOn=c;pa.value=c+' ($'+PROMOS[c]+' off) - customer confirmed first-time booking';pc.value=c;pm.textContent='Code '+c+' applied: $'+PROMOS[c]+' off your total.';pm.className='promo-msg small ok'}
+ else{promoOn='';pa.value='';pm.textContent='Sorry, that code isn\u2019t valid. Check the spelling and try again.';pm.className='promo-msg small'}
+ total();}
+document.getElementById('promo-apply').addEventListener('click',applyPromo);document.getElementById('promo-first').addEventListener('change',function(){if(document.getElementById('promo-code').value.trim())applyPromo()});
+document.getElementById('promo-code').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();applyPromo()}});
+document.getElementById('promo-code').addEventListener('blur',function(){if(this.value.trim())applyPromo()});
 var INFO={Bronze:'Bronze: 3 hours, unlimited digital photos, professional lighting and template design. Self-serve, with no attendant or printed photos.',Silver:'Silver: 3 hours with an on-site attendant, unlimited instant prints and digital photos, and a standard backdrop.',Gold:'Gold: 6 hours with an attendant, unlimited instant prints, red carpet and a premium backdrop.',"Drop-off":'Drop-off booth: 3 hours, no attendant, for small parties. We deliver, set up and pick it up.'};
 function info(){var v=f.package.value,el=document.getElementById('pkg-info');if(INFO[v])el.textContent=INFO[v]}
 f.addEventListener('change',function(){total();info()});total();info();
