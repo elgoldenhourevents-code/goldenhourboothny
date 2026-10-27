@@ -305,3 +305,8 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 .btn.click-flash-silver{animation:gh-cf-silver .55s ease-out!important}
 .btn.click-flash-gold{animation:gh-cf-gold .85s cubic-bezier(.2,.8,.3,1)!important}
 @media (prefers-reduced-motion:reduce){.btn.click-flash-bronze,.btn.click-flash-silver,.btn.click-flash-gold{animation:none!important}}
+
+/* booking section rises into place after Choose buttons */
+#book>.container.rise-prep{opacity:0;transform:translateY(90px)}
+#book>.container.rise-go{transition:opacity .55s ease-out,transform .7s cubic-bezier(.2,.8,.25,1)}
+@media (prefers-reduced-motion:reduce){#book>.container.rise-prep{opacity:1;transform:none}}

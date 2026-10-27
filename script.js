@@ -14,6 +14,12 @@ document.querySelectorAll('[data-package]').forEach(b=>b.addEventListener('click
   b.classList.remove('click-flash-bronze','click-flash-silver','click-flash-gold');void b.offsetWidth;
   b.classList.add('click-flash-'+pk);
   setTimeout(()=>b.classList.remove('click-flash-'+pk),pk==='gold'?900:600);
+  const panel=document.querySelector('#book > .container');
+  panel.classList.add('rise-prep');
+  const release=()=>{panel.classList.add('rise-go');panel.classList.remove('rise-prep');setTimeout(()=>panel.classList.remove('rise-go'),900);};
+  const rio=new IntersectionObserver((en)=>{if(en[0].isIntersecting){rio.disconnect();clearTimeout(rt);release();}},{threshold:[.2]});
+  const rt=setTimeout(()=>{rio.disconnect();release();},2600);
+  rio.observe(panel);
   setTimeout(()=>document.getElementById('book').scrollIntoView({behavior:'smooth'}),pk==='gold'?380:260);
   const io=new IntersectionObserver((en)=>{if(en[0].isIntersecting&&en[0].intersectionRatio>=.6){io.disconnect();clearTimeout(t);setTimeout(flash,250);}},{threshold:[.6]});
   const t=setTimeout(()=>{io.disconnect();flash();},2500);
