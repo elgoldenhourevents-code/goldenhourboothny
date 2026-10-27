@@ -321,5 +321,5 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 @media (prefers-reduced-motion:reduce){#booking-form.flash-glow-bronze,#booking-form.flash-glow-silver,#booking-form.flash-glow-gold{animation:none}}
 .footer-brand{margin:0 0 .8rem}
 /* Charcoal sections: How It Works, Packages, FAQ */
-#how,#packages,#faq{background:linear-gradient(160deg,#1c2130 0%,#252b3d 55%,#32363f 130%)}
-#how .section-title::after,#packages .section-title::after,#faq .section-title::after{background:linear-gradient(90deg,#e8a33d,#ffd98a,#e8a33d);background-size:200% 100%}
+#how,#packages,#faq,#events,#testimonials{background:linear-gradient(160deg,#1c2130 0%,#252b3d 55%,#32363f 130%)}
+#how .section-title::after,#packages .section-title::after,#faq .section-title::after,#events .section-title::after,#testimonials .section-title::after{background:linear-gradient(90deg,#e8a33d,#ffd98a,#e8a33d);background-size:200% 100%}
