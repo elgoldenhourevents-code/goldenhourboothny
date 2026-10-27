@@ -650,3 +650,8 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 .pkg-info{margin:-.2rem 0 1rem;color:var(--muted);font-size:.93rem;line-height:1.5}
 .request-booking{margin:2rem 0 0}
 .book-hero{padding-bottom:1.5rem}
+
+/* service-area extra line: plain text, not link-like */
+.towns li.towns-etc{border:0;background:none;font-style:normal;font-weight:400;color:var(--muted);padding-left:.2rem}
+.serve-extra{color:inherit;font-style:normal}
+.towns li,.footer li,.footer p{-webkit-touch-callout:none}
