@@ -625,3 +625,9 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 .price-card li.no,.book-prices li.no{color:rgba(185,194,214,.62)}
 .promo-input .btn-ghost{color:var(--champ)}
 .price-card li::before,.hero-points li::before,.book-prices li::before{color:var(--champ)}
+/* Booth NY: same typeface as the "Hour" lettering (Forum) */
+@font-face{font-family:"Forum";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/forum.woff2") format("woff2")}
+.al-booth{font-family:"Forum",Georgia,"Times New Roman",serif;font-weight:400;font-size:.8rem;font-size:10.4cqw;letter-spacing:.26em;padding-left:.26em;top:106%;color:#ffbd59;-webkit-text-stroke:.35px #ffbd59}
+.owner-card .owner-sign svg,.owner-sign svg{width:84px;max-width:40%}
+.owner-card .owner-sign{margin:0 0 .3rem}
+.owner-sign svg,.owner-card .owner-sign svg{color:#e9cd8a}
