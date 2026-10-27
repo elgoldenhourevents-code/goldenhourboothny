@@ -338,9 +338,9 @@ body{background:#16171c}
 .trust *{color:#fff!important;text-shadow:0 1px 6px rgba(12,12,16,.45)}
 .about{background:linear-gradient(160deg,#16171c 0%,#2a2823 55%,#6f5524 130%)}
 .section{background:linear-gradient(160deg,#17181d 0%,#25241f 55%,#5a4620 125%)}
-#addons,#gallery,#area,#book{background:linear-gradient(200deg,#4f3f1d -20%,#24231f 50%,#17181d 100%)}
+#addons,#gallery,#area,#book,#contact{background:linear-gradient(200deg,#4f3f1d -20%,#24231f 50%,#17181d 100%)}
 #how,#packages,#faq,#events,#testimonials{background:linear-gradient(160deg,#1c1d22 0%,#2b2924 55%,#6a5223 130%)}
-#addons .section-title::after,#gallery .section-title::after,#area .section-title::after,#book .section-title::after,.section-title::after,.about-copy .section-title::after{background:linear-gradient(90deg,#e8a33d,#ffd98a,#e8a33d);background-size:200% 100%}
+#addons .section-title::after,#gallery .section-title::after,#area .section-title::after,#book .section-title::after,#contact .section-title::after,.section-title::after,.about-copy .section-title::after{background:linear-gradient(90deg,#e8a33d,#ffd98a,#e8a33d);background-size:200% 100%}
 footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 #progress{background:linear-gradient(90deg,#e8a33d,#ffd98a)}
 .card,.price-card,.event,.addons li{background:rgba(22,22,27,.62);border-color:rgba(232,163,61,.22)}
@@ -631,3 +631,15 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 .owner-card .owner-sign svg,.owner-sign svg{width:84px;max-width:40%}
 .owner-card .owner-sign{margin:0 0 .3rem}
 .owner-sign svg,.owner-card .owner-sign svg{color:#e9cd8a}
+/* Main page: Book Your Date call-to-action band */
+.book-cta-inner{text-align:center;max-width:46rem}
+.book-cta-inner p{margin:.2rem auto 1.4rem;color:var(--muted)}
+.book-cta-inner .contact-list{margin:2rem auto 0;display:inline-block;text-align:left}
+/* Book page: package arrival animation (rise from below, then colored glow) */
+#book-form.rise-prep{opacity:0;transform:translateY(90px)}
+#book-form.rise-go{transition:opacity .55s ease-out,transform .7s cubic-bezier(.2,.8,.25,1)}
+#book-form.flash-glow-bronze{animation:gh-form-bronze 1.9s ease-out;border-radius:14px}
+#book-form.flash-glow-silver{animation:gh-form-silver 1.9s ease-out;border-radius:14px}
+#book-form.flash-glow-gold{animation:gh-form-gold 1.7s ease-out;border-radius:14px}
+@media (prefers-reduced-motion:reduce){#book-form.rise-prep{opacity:1;transform:none}#book-form.flash-glow-bronze,#book-form.flash-glow-silver,#book-form.flash-glow-gold{animation:none}}
+@media (min-width:901px) and (max-width:1360px){.nav-links{gap:1rem;margin-left:.8rem}}@media (min-width:901px) and (max-width:1100px){.nav-links{gap:.6rem;margin-left:.5rem}}

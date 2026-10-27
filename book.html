@@ -170,6 +170,12 @@ document.getElementById('year').textContent=new Date().getFullYear();
 var f=document.getElementById('book-form'),st=document.getElementById('status'),est=document.getElementById('estimate');
 var d=new Date();f.event_date.min=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 var p=new URLSearchParams(location.search);if(p.get('package'))f.package.value=p.get('package');
+if(p.get('date')&&p.get('date')>=f.event_date.min)f.event_date.value=p.get('date');
+if(p.get('type'))f.event_type.value=p.get('type');
+(function(){var pk=(p.get('package')||'').toLowerCase();if(!/^(bronze|silver|gold)$/.test(pk)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ f.classList.add('rise-prep');
+ requestAnimationFrame(function(){requestAnimationFrame(function(){f.classList.add('rise-go');f.classList.remove('rise-prep');
+  setTimeout(function(){f.classList.add('flash-glow-'+pk);setTimeout(function(){f.classList.remove('flash-glow-'+pk,'rise-go')},2000)},650);});});})();
 function total(){var s=f.package.selectedOptions[0],base=+(s&&s.dataset.price||0);if(!base){est.innerHTML='Estimated total: <b>choose a package</b>';f.estimated_total.value='';return}
  var t=base;f.querySelectorAll('input[name=addons]:checked').forEach(function(c){t+=+c.dataset.price});
  est.innerHTML='Estimated total: <b>$'+t+'</b> <span class="small">(before any sales tax; we\u2019ll confirm the final price)</span>';f.estimated_total.value='$'+t;}
