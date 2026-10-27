@@ -1,0 +1,11 @@
+Golden Hour Booth NY - gallery photo credits (record only; not displayed on site)
+All from Pexels, Pexels License (https://www.pexels.com/license/): free commercial use, no attribution required.
+Downloaded 2026-10-26 via images.pexels.com CDN, resized to max 1000px wide/1500px tall, JPEG q80.
+
+Slot 1 (tall)   assets/booth-guest-mustache-prop-tinsel.jpg        https://www.pexels.com/photo/blonde-model-with-toy-moustache-6354022/  (Pexels ID 6354022; photographer: see source page)
+Slot 2          assets/party-guests-instant-camera.jpg             https://www.pexels.com/photo/pretty-woman-taking-pictures-at-a-party-10578902/  Photographer: cottonbro studio
+Slot 3          assets/instant-print-couple-props.jpg              https://www.pexels.com/photo/polaroid-photo-of-a-man-and-a-woman-holding-cutouts-6312032/  Photographer: Lisa Fotios
+Slot 4 (tall-d) assets/wedding-couple-holding-instant-prints.jpg   https://www.pexels.com/photo/bride-and-groom-holding-polaroid-photos-17669070/  Photographer: Feyza Yildirim
+Slot 5 (tall)   assets/guest-mustache-glasses-props-gold-fringe.jpg https://www.pexels.com/photo/a-man-holding-wine-glass-and-eyeglasses-with-moustache-paper-cut-outs-6519369/  Photographer: RDNE Stock project
+Slot 6          assets/photo-booth-strip-print.jpg                 https://www.pexels.com/photo/flatlay-4550433/  Photographer: cottonbro studio
+Share image     assets/og-image.jpg = 1200x630 crop of slot 2 photo (10578902, cottonbro studio)
