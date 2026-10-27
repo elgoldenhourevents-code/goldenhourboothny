@@ -619,3 +619,31 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 .towns li.towns-etc{border:0;background:none;font-style:normal;font-weight:400;color:var(--muted);padding-left:.2rem}
 .serve-extra{color:inherit;font-style:normal}
 .towns li,.footer li,.footer p{-webkit-touch-callout:none}
+
+/* ===== polish: spacing rhythm, hover feedback, outline-button halos ===== */
+.book-hero{padding-bottom:0}
+.book-hero + .section{padding-top:2.2rem}
+@media (max-width:700px){.book-hero + .section{padding-top:1.6rem}}
+.book-cta-inner + .contact-list{margin-top:2rem}
+
+/* text links: lighter on hover so the change is visible, plus underline */
+.contact-list a:hover,.footer a:hover,.copy a:hover,.small a:hover,.notice a:hover,.note a:hover,.legal a:hover,.pkg-info a:hover,.form a:hover{color:#ffd98a;text-decoration:underline;text-decoration-color:#ffd98a}
+details summary:hover{color:#ffd98a}
+.nav-links a:not(.btn):hover{color:#ffd98a}
+.nav-links a.nav-phone:hover,.nav-links a.nav-phone:hover .np-num{color:#ffd98a!important}
+
+/* cards without a lift: gold border + soft gold wash */
+.about-points li,.addons li{transition:border-color .25s,background-color .25s,box-shadow .25s}
+.about-points li:hover,.addons li:hover{transform:none;border-color:rgba(232,163,61,.7);background:linear-gradient(160deg,rgba(232,163,61,.12),rgba(22,22,27,.62) 70%);box-shadow:0 10px 26px rgba(12,12,16,.35),0 0 0 1px rgba(232,163,61,.25)}
+.review-cta a.btn{transition:transform .2s,box-shadow .2s,filter .2s}
+.review-cta a.btn:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 10px 24px rgba(232,163,61,.4)}
+.form select:hover,.form input:hover:not(:focus),.form textarea:hover:not(:focus){border-color:rgba(232,163,61,.65)}
+.form .check:hover{color:#ffd98a}
+.form .check{cursor:pointer}
+
+/* outline buttons: soft gold halo at rest, brighter halo on hover, still visible when the fill turns gold */
+.btn-ghost,.nav-call,.cookie-decline,.notfound .btn-outline{box-shadow:0 0 0 1px rgba(232,163,61,.28),0 0 14px rgba(232,163,61,.28)}
+.btn.btn-ghost:not([data-package]):hover,.nav-call:hover,.nav-call:focus-visible,.cookie-decline:hover{box-shadow:0 0 0 3px rgba(255,217,138,.45),0 6px 22px rgba(232,163,61,.6)}
+.nav-call:hover{color:#1a1200;background:#e8a33d;border-color:#e8a33d}
+.btn.btn-ghost:focus-visible,.nav-call:focus-visible{box-shadow:0 0 0 3px rgba(255,217,138,.6),0 0 22px rgba(232,163,61,.6)}
+@media (hover:none){.btn-ghost,.nav-call{box-shadow:0 0 0 1px rgba(232,163,61,.3),0 0 12px rgba(232,163,61,.3)}}
