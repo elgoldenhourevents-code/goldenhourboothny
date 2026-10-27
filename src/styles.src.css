@@ -554,3 +554,8 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 .nav-links a.nav-phone:hover .np-note{color:#fff}
 .ph-note{display:block;margin-top:-.15rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,213,122,.65)}
 @media (max-width:900px){.nav-links a.nav-phone{align-items:flex-start}}
+/* signature + a11y helpers */
+@font-face{font-family:"Allura";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/allura.woff2") format("woff2")}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.owner-card .owner-sign{font-family:"Allura","Snell Roundhand","Brush Script MT",cursive;font-style:normal;font-weight:400;font-size:2.6rem;line-height:1.1;letter-spacing:.01em;color:#e9cd8a;opacity:.92;margin-bottom:.1rem;transform:rotate(-2deg);transform-origin:right center}
+.serve-extra{color:#f6d57a;font-style:italic}
