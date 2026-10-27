@@ -643,3 +643,10 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 #book-form.flash-glow-gold{animation:gh-form-gold 1.7s ease-out;border-radius:14px}
 @media (prefers-reduced-motion:reduce){#book-form.rise-prep{opacity:1;transform:none}#book-form.flash-glow-bronze,#book-form.flash-glow-silver,#book-form.flash-glow-gold{animation:none}}
 @media (min-width:901px) and (max-width:1360px){.nav-links{gap:1rem;margin-left:.8rem}}@media (min-width:901px) and (max-width:1100px){.nav-links{gap:.6rem;margin-left:.5rem}}
+/* Book page: clear 3-step form */
+.form-step{display:flex;align-items:center;gap:.7rem;margin:1.6rem 0 .9rem;padding-bottom:.6rem;border-bottom:1px solid rgba(205,181,132,.25);font-size:1.12rem;color:var(--text)}
+.form-step:first-of-type{margin-top:0}
+.form-step span{display:inline-flex;align-items:center;justify-content:center;width:1.7rem;height:1.7rem;border-radius:50%;background:linear-gradient(135deg,#f0c864,#c9962f);color:#16171c;font-size:.9rem;font-weight:800}
+.pkg-info{margin:-.2rem 0 1rem;color:var(--muted);font-size:.93rem;line-height:1.5}
+.request-booking{margin:2rem 0 0}
+.book-hero{padding-bottom:1.5rem}
