@@ -184,6 +184,8 @@
 <!-- Add real stats (events booked, rating) here once you have them. -->
 <section class="trust" aria-label="At a glance">
   <div class="container trust-grid">
+    <div><strong>4 years</strong><span>in business</span></div>
+    <div><strong>Family-owned</strong><span>real people, personal service</span></div>
     <div><strong>25 mi</strong><span>free travel radius</span></div>
     <div><strong>100%</strong><span>locally owned in Peekskill</span></div>
   </div>
@@ -202,6 +204,20 @@
       <li class="reveal"><span aria-hidden="true">&#128248;</span><div><h3>Instant keepsakes</h3><p>Photos your guests can hold the moment they&rsquo;re taken.</p></div></li>
       <li class="reveal"><span aria-hidden="true">&#128153;</span><div><h3>Local to the Hudson Valley</h3><p>Proudly serving Westchester and the Hudson Valley.</p></div></li>
     </ul>
+  </div>
+</section>
+
+<section id="owner" class="section owner" aria-labelledby="owner-title">
+  <div class="container">
+    <figure class="owner-card reveal">
+      <h2 id="owner-title" class="section-title">A Note from the Owner</h2>
+      <blockquote>
+        <p>Hi, I&rsquo;m Lester, and Golden Hour Booth NY is our family&rsquo;s business. We started it because we love being part of the moments people remember: the first dance, the birthday candles, a whole group of friends squeezed into one frame.</p>
+        <p>For four years now, my family and I have been bringing the booth to events around Peekskill and the Hudson Valley. When you reach out, you&rsquo;ll hear back from a real person, not a call center. We&rsquo;ll help you pick the right package, answer your questions, and treat your celebration like it&rsquo;s our own.</p>
+        <p>Thank you for thinking of us. I can&rsquo;t wait to help make your day unforgettable.</p>
+      </blockquote>
+      <figcaption><span class="owner-sign">Lester</span><span class="owner-role">Owner, Golden Hour Booth NY</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -371,21 +387,21 @@
     <!-- TODO: Create a free form at https://formspree.io and replace YOUR_FORM_ID below. -->
     <form class="card form" id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div class="row">
-        <label>Name<input type="text" name="name" autocomplete="name" required></label>
-        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        <label>Name<span class="req" aria-hidden="true"> *</span><input type="text" name="name" autocomplete="name" required></label>
+        <label>Email<span class="req" aria-hidden="true"> *</span><input type="email" name="email" autocomplete="email" required></label>
       </div>
       <div class="row">
-        <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
-        <label>Event Date<input type="date" name="event_date" required></label>
+        <label>Phone<span class="opt"> (optional)</span><input type="tel" name="phone" autocomplete="tel"></label>
+        <label>Event Date<span class="req" aria-hidden="true"> *</span><input type="date" name="event_date" required></label>
       </div>
       <div class="row">
-        <label>Event Type
+        <label>Event Type<span class="req" aria-hidden="true"> *</span>
           <select name="event_type" required>
             <option value="">Select one&hellip;</option>
             <option>Wedding</option><option>Birthday</option><option>Corporate</option><option>Graduation</option><option>Prom</option><option>Other</option>
           </select>
         </label>
-        <label>Package
+        <label>Package<span class="opt"> (optional)</span>
           <select name="package"><option value="">Not sure yet</option><option value="Bronze" data-price="250">Bronze</option><option value="Silver" data-price="449">Silver</option><option value="Gold" data-price="849">Gold</option></select>
         </label>
       </div>
@@ -398,7 +414,7 @@
           <label class="check"><input type="checkbox" name="addons" value="Drop-off booth" data-price="299"> <span>Drop-off booth</span> <b>+$299</b></label>
         </div>
       </fieldset>
-      <label>Venue / town &amp; guest count<textarea name="message" rows="3" placeholder="e.g. Peekskill, ~120 guests, interested in the scrapbook add-on"></textarea></label>
+      <label>Venue / town &amp; guest count<span class="opt"> (optional)</span><textarea name="message" rows="3" placeholder="e.g. Peekskill, ~120 guests, interested in the scrapbook add-on"></textarea></label>
       <div class="promo-row">
         <label>Promo code
           <span class="promo-input"><input type="text" name="promo_code" id="promo-code" placeholder="Enter code" autocomplete="off" autocapitalize="characters" maxlength="30"><button type="button" class="btn btn-sm btn-ghost" id="promo-apply">Apply</button></span>
@@ -411,6 +427,7 @@
         <p class="small est-note">Before any sales tax. We&rsquo;ll confirm the final price in your quote.</p>
       </div>
       <input type="hidden" name="estimated_total" id="estimated_total" value="">
+      <p class="small req-note"><span class="req" aria-hidden="true">*</span> Required field</p>
       <button type="submit" class="btn btn-lg">Get My Quote</button>
       <p class="form-status" role="status" aria-live="polite"></p>
       <p class="small">Prefer email? <a id="mailto-fallback" href="mailto:info@goldenhourboothny.com?subject=Photo%20Booth%20Booking%20Inquiry">Email us directly</a>.</p>
@@ -434,6 +451,7 @@
   <a href="#book" class="mb-book">Book Your Date</a>
 </div>
 <script src="script.js" defer></script>
+<script src="/form-validate.js" defer></script>
 <script src="/consent.js" defer></script>
 </body>
 </html>

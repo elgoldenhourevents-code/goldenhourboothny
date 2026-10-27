@@ -89,23 +89,23 @@
       <input type="hidden" name="_captcha" value="false">
       <p class="hp"><label>Don&rsquo;t fill this out: <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
       <div class="row">
-        <label>Event Date<input type="date" name="event_date" required></label>
-        <label>Start Time<input type="time" name="start_time" required></label>
+        <label>Event Date<span class="req" aria-hidden="true"> *</span><input type="date" name="event_date" required></label>
+        <label>Start Time<span class="req" aria-hidden="true"> *</span><input type="time" name="start_time" required></label>
       </div>
       <div class="row">
-        <label>Event Type
+        <label>Event Type<span class="req" aria-hidden="true"> *</span>
           <select name="event_type" required>
             <option value="">Select one&hellip;</option>
             <option>Wedding</option><option>Birthday</option><option>Corporate</option><option>Graduation</option><option>Prom</option><option>Other</option>
           </select>
         </label>
-        <label>Guest Count<input type="number" name="guest_count" min="1" inputmode="numeric" required></label>
+        <label>Guest Count<span class="req" aria-hidden="true"> *</span><input type="number" name="guest_count" min="1" inputmode="numeric" required></label>
       </div>
       <div class="row">
-        <label>Venue Name<input type="text" name="venue" required placeholder="e.g. Garrison Art Center"></label>
-        <label>Town<input type="text" name="town" required placeholder="e.g. Garrison, NY"></label>
+        <label>Venue Name<span class="req" aria-hidden="true"> *</span><input type="text" name="venue" required placeholder="e.g. Garrison Art Center"></label>
+        <label>Town<span class="req" aria-hidden="true"> *</span><input type="text" name="town" required placeholder="e.g. Garrison, NY"></label>
       </div>
-      <label>Package
+      <label>Package<span class="req" aria-hidden="true"> *</span>
         <select name="package" id="package" required>
           <option value="">Choose a package&hellip;</option>
           <option value="Bronze" data-price="250">Bronze &ndash; $250 (3 hrs)</option>
@@ -123,13 +123,14 @@
       </fieldset>
       <p class="estimate" id="estimate" aria-live="polite">Estimated total: <b>choose a package</b> <span class="small">(before any sales tax; we&rsquo;ll confirm the final price)</span></p>
       <div class="row">
-        <label>Your Name<input type="text" name="name" autocomplete="name" required></label>
-        <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
+        <label>Your Name<span class="req" aria-hidden="true"> *</span><input type="text" name="name" autocomplete="name" required></label>
+        <label>Phone<span class="req" aria-hidden="true"> *</span><input type="tel" name="phone" autocomplete="tel" required></label>
       </div>
-      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+      <label>Email<span class="req" aria-hidden="true"> *</span><input type="email" name="email" autocomplete="email" required></label>
       <label>Anything else we should know? (optional)<textarea name="notes" rows="3"></textarea></label>
       <input type="hidden" name="estimated_total" id="estimated_total" value="">
       <p class="notice" style="margin-top:0"><strong>Please note:</strong> your date is not guaranteed until you receive a confirmation from us. We check every request by hand, and we&rsquo;ll email you to confirm.</p>
+      <p class="small req-note"><span class="req" aria-hidden="true">*</span> Required field</p>
       <button type="submit" class="btn btn-lg">Send Details &amp; Pay $150 Deposit</button>
       <p class="form-status" id="status" role="status" aria-live="polite"></p>
       <p class="small">Your details go to <a href="mailto:info@goldenhourboothny.com">info@goldenhourboothny.com</a>. The next step is a secure $150 deposit payment. <strong>Your date is not guaranteed until you receive a confirmation from us.</strong></p>
@@ -179,6 +180,7 @@ f.addEventListener('submit',function(e){e.preventDefault();st.textContent='Sendi
   document.getElementById('pay-link').style.display='none';window.scrollTo({top:0,behavior:'smooth'});
  }).catch(function(){st.innerHTML='Something went wrong. Please email <a href="mailto:info@goldenhourboothny.com">info@goldenhourboothny.com</a> or call (914) 817-8018.'});});
 </script>
+<script src="/form-validate.js" defer></script>
 <script src="/consent.js" defer></script>
 </body>
 </html>
