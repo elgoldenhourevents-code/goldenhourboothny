@@ -466,3 +466,15 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 }
 @media (max-width:350px){.nav-call svg{display:block}}
 @media (max-width:350px){.nav-inner .brand-name{display:none}.nav-call span{display:inline}.nav-call{width:auto;padding:0 .75rem}.nav-call svg{display:none}}
+
+/* 404 page */
+.notfound{padding:5rem 0 6rem;text-align:center}
+.notfound .nf-code{font-family:var(--serif);font-size:clamp(5rem,18vw,9rem);line-height:1;margin:0;background:linear-gradient(135deg,#f6d57a,#d9a03a 55%,#b8862f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.notfound h1{font-size:clamp(1.8rem,5vw,2.6rem);margin:.4rem 0 .8rem}
+.notfound p{color:#d8d5cc;max-width:520px;margin:0 auto 1rem}
+.notfound .nf-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem}
+.notfound .btn-outline{background:transparent;color:#f6d57a;border:2px solid rgba(217,160,58,.7)}
+.notfound .btn-outline:hover{background:rgba(217,160,58,.15)}
+.notfound .nf-code{max-width:none;margin:0 auto}
+.notfound .nf-actions .btn-outline{background:transparent!important;color:#f6d57a!important;border:2px solid rgba(217,160,58,.7)!important;animation:none!important;box-shadow:none!important}
+.notfound .nf-actions .btn-outline:hover{background:rgba(217,160,58,.15)!important}
