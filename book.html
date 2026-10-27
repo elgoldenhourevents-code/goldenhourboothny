@@ -60,7 +60,7 @@
   <div class="container">
     <h1 class="section-title">Book Your Date</h1>
     <p>Tell us about your event, choose a package and pay the $150 deposit to hold your date. We confirm every booking by email.</p>
-    <ol class="steps-mini"><li><span>1</span>Fill in the form</li><li><span>2</span>Pay the $150 deposit</li><li><span>3</span>We confirm your date</li></ol>
+    <ol class="steps-mini"><li><span>1</span>Send your details</li><li><span>2</span>Pay the $150 deposit</li><li><span>3</span>We confirm your date</li></ol>
   </div>
 </section>
 
@@ -122,9 +122,9 @@
       <input type="hidden" name="estimated_total" id="estimated_total" value="">
       <p class="notice" style="margin-top:0"><strong>Please note:</strong> your date is not guaranteed until you receive a confirmation from us. We check every request by hand, and we&rsquo;ll email you to confirm.</p>
       <p class="small req-note"><span class="req" aria-hidden="true">*</span> Required field</p>
-      <button type="submit" class="btn btn-lg">Send Details &amp; Pay $150 Deposit</button>
+      <button type="submit" class="btn btn-lg" id="send-btn">Send Details</button>
       <p class="form-status" id="status" role="status" aria-live="polite"></p>
-      <p class="small">Your details go to <a href="mailto:info@goldenhourboothny.com">info@goldenhourboothny.com</a>. The next step is a secure $150 deposit payment. <strong>Your date is not guaranteed until you receive a confirmation from us.</strong></p>
+      <p class="small">Your details go to <a href="mailto:info@goldenhourboothny.com">info@goldenhourboothny.com</a>. Once they are sent, the next step is a separate, secure $150 deposit payment. <strong>Your date is not guaranteed until you receive a confirmation from us.</strong></p>
     </form>
 
     <div class="card request-booking" id="request-booking">
@@ -133,10 +133,12 @@
       <a class="btn btn-ghost" href="https://goldenhourny.hbportal.co/public/6ae03550feb6cf606153a83b" target="_blank" rel="noopener">Send a quick inquiry</a>
     </div>
 
-    <div class="card thanks" id="thanks" hidden>
-      <h2>Thanks! Your details are in.</h2>
-      <p id="thanks-pay">Last step: pay the $150 deposit to hold your date.</p>
+    <div class="card thanks" id="thanks" hidden tabindex="-1">
+      <h2>Step 1 done: your details are in.</h2>
+      <p id="thanks-sum"></p>
+      <p id="thanks-pay"><strong>Step 2:</strong> pay the $150 deposit to hold your date. The deposit comes off your final balance.</p>
       <p><a class="btn btn-lg" id="pay-link" href="#">Pay $150 Deposit</a></p>
+      <p class="small">You&rsquo;ll go to our secure Stripe checkout. Your date isn&rsquo;t held until the deposit is paid and we confirm by email. Refund terms are in our <a href="/terms">Terms</a>.</p>
     </div>
 
     <div class="notice"><strong>How dates work:</strong> we don&rsquo;t have a live calendar yet, so we check every request by hand. It&rsquo;s possible for two people to request the same date. If yours turns out to be taken, we&rsquo;ll let you know right away and refund your deposit in full.</div>
@@ -175,15 +177,26 @@ function total(){var s=f.package.selectedOptions[0],base=+(s&&s.dataset.price||0
 var INFO={Bronze:'Bronze: 3 hours, unlimited digital photos, professional lighting and template design. Self-serve, with no attendant or printed photos.',Silver:'Silver: 3 hours with an on-site attendant, unlimited instant prints and digital photos, and a standard backdrop.',Gold:'Gold: 6 hours with an attendant, unlimited instant prints, red carpet and a premium backdrop.'};
 function info(){var v=f.package.value,el=document.getElementById('pkg-info');if(INFO[v])el.textContent=INFO[v]}
 f.addEventListener('change',function(){total();info()});total();info();
-f.addEventListener('submit',function(e){e.preventDefault();st.textContent='Sending\u2026';
+f.addEventListener('submit',function(e){e.preventDefault();
+ var btn=document.getElementById('send-btn');if(btn.disabled)return;
+ btn.disabled=true;btn.textContent='Sending\u2026';st.textContent='Sending your details\u2026';
  var body=new URLSearchParams();new FormData(f).forEach(function(v,k){body.append(k,v)});
- fetch('https://formsubmit.co/ajax/info@goldenhourboothny.com',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'},body:body.toString()}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(j&&j.success==='false')throw 0;
-  var live=DEPOSIT_URL.indexOf('PLACEHOLDER')<0;
-  if(live){location.href=DEPOSIT_URL;return}
-  f.hidden=true;document.getElementById('thanks').hidden=false;
-  document.getElementById('thanks-pay').textContent='Deposit payment isn\u2019t switched on yet \u2014 we\u2019ll email or text you a secure link to pay the $150 deposit and hold your date.';
-  document.getElementById('pay-link').style.display='none';window.scrollTo({top:0,behavior:'smooth'});
- }).catch(function(){st.innerHTML='Something went wrong. Please email <a href="mailto:info@goldenhourboothny.com">info@goldenhourboothny.com</a> or call (914) 817-8018.'});});
+ var ac=window.AbortController?new AbortController():null,to=setTimeout(function(){ac&&ac.abort()},30000);
+ function fail(){clearTimeout(to);btn.disabled=false;btn.textContent='Send Details';
+  var lines=[];new FormData(f).forEach(function(v,k){if(v&&k.charAt(0)!=='_')lines.push(k.replace(/_/g,' ')+': '+v)});
+  var mail='mailto:info@goldenhourboothny.com?subject='+encodeURIComponent('Booking request')+'&body='+encodeURIComponent(lines.join('\n'));
+  st.innerHTML='We couldn\u2019t send your details just now. Please press <b>Send Details</b> to try again, or <a href="'+mail+'">email them to us</a> or call <a href="tel:+19148178018">(914) 817-8018</a>.';}
+ var opts={method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'},body:body.toString()};if(ac)opts.signal=ac.signal;
+ fetch('https://formsubmit.co/ajax/info@goldenhourboothny.com',opts).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(!j||String(j.success)!=='true')throw 0;
+  clearTimeout(to);
+  var u=DEPOSIT_URL+(DEPOSIT_URL.indexOf('?')<0?'?':'&')+'prefilled_email='+encodeURIComponent(f.email.value);
+  var live=DEPOSIT_URL.indexOf('PLACEHOLDER')<0,pl=document.getElementById('pay-link');
+  f.hidden=true;var th=document.getElementById('thanks');th.hidden=false;
+  total();var dt=new Date(f.event_date.value+'T12:00:00');document.getElementById('thanks-sum').textContent='We received your '+f.package.value+' request for '+(isNaN(dt)?f.event_date.value:dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}))+(f.estimated_total.value?' (estimated total '+f.estimated_total.value+', before tax)':'')+'.';
+  if(live){pl.href=u}else{pl.style.display='none';document.getElementById('thanks-pay').textContent='Deposit payment isn\u2019t switched on yet \u2014 we\u2019ll email or text you a secure link to pay the $150 deposit and hold your date.'}
+  var rb=document.getElementById('request-booking');if(rb)rb.hidden=true;
+  th.scrollIntoView({behavior:'smooth',block:'start'});th.focus({preventScroll:true});
+ }).catch(fail);});
 </script>
 <script src="/form-validate.js" defer></script>
 <script src="/consent.js" defer></script>
