@@ -17,7 +17,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-first-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-first-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-first.png">
-<link rel="stylesheet" href="/styles.css?v=polish1">
+<link rel="stylesheet" href="/styles.css?v=fix1">
 <style>
 .book-hero{padding:3rem 0 1rem;text-align:center}.book-hero p{color:var(--muted);max-width:640px;margin:.5rem auto 0}
 .steps-mini{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:center;list-style:none;padding:0;margin:1.4rem 0 0;color:var(--accent2);font-weight:600;font-size:.95rem}
@@ -67,11 +67,11 @@
 <section class="section">
   <div class="container narrow">
     <h2 class="sr-only">Booking details</h2>
-    <form class="card form" id="book-form" name="booking" method="POST" action="https://formsubmit.co/info@goldenhourboothny.com">
-      <input type="hidden" name="_subject" value="New Golden Hour Booth NY booking request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <p class="hp"><label>Don&rsquo;t fill this out: <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
+    <form class="card form" id="book-form" name="booking" method="POST" action="https://api.web3forms.com/submit">
+      <input type="hidden" name="access_key" value="401e5dcb-c1fd-4583-87d0-f3bc8e6378cd">
+      <input type="hidden" name="subject" value="New Golden Hour Booth NY booking request">
+      <input type="hidden" name="from_name" value="Golden Hour Booth NY website">
+      <p class="hp"><label>Don&rsquo;t fill this out: <input name="botcheck" tabindex="-1" autocomplete="off"></label></p>
       <h3 class="form-step"><span>1</span>Your event</h3>
       <div class="row">
         <label>Event Date<span class="req" aria-hidden="true"> *</span><input type="date" name="event_date" required></label>
@@ -100,15 +100,15 @@
           <option value="Bronze" data-price="250">Bronze &ndash; $250 (3 hrs)</option>
           <option value="Silver" data-price="449">Silver &ndash; $449 (3 hrs)</option>
           <option value="Gold" data-price="849">Gold &ndash; $849 (6 hrs)</option>
+          <option value="Drop-off" data-price="299">Drop-off booth &ndash; $299 (3 hrs, no attendant)</option>
         </select>
       </label>
-      <p class="pkg-info" id="pkg-info" aria-live="polite">Not sure which to pick? Bronze is a self-serve booth, Silver adds an on-site attendant and unlimited instant prints, and Gold adds 6 hours, red carpet and a premium backdrop.</p>
+      <p class="pkg-info" id="pkg-info" aria-live="polite">Not sure which to pick? Bronze is a self-serve digital booth. Silver adds an on-site attendant and unlimited instant prints. Gold is Silver plus 6 hours (instead of 3), a red carpet and a premium backdrop.</p>
       <fieldset class="fieldset"><legend>Add-ons (optional)</legend>
         <div class="checks-grid">
           <label class="check"><input type="checkbox" name="addons" value="Extra hour" data-price="99"> Extra hour (+$99)</label>
           <label class="check"><input type="checkbox" name="addons" value="Premium backdrop" data-price="125"> Premium backdrop (+$125)</label>
           <label class="check"><input type="checkbox" name="addons" value="Scrapbook guest book" data-price="149"> Scrapbook guest book (+$149)</label>
-          <label class="check"><input type="checkbox" name="addons" value="Drop-off booth" data-price="299"> Drop-off booth (+$299)</label>
         </div>
       </fieldset>
       <p class="estimate" id="estimate" aria-live="polite">Estimated total: <b>choose a package</b> <span class="small">(before any sales tax; we&rsquo;ll confirm the final price)</span></p>
@@ -138,10 +138,10 @@
       <p id="thanks-sum"></p>
       <p id="thanks-pay"><strong>Step 2:</strong> pay the $150 deposit to hold your date. The deposit comes off your final balance.</p>
       <p><a class="btn btn-lg" id="pay-link" href="#">Pay $150 Deposit</a></p>
-      <p class="small">You&rsquo;ll go to our secure Stripe checkout. Your date isn&rsquo;t held until the deposit is paid and we confirm by email. Refund terms are in our <a href="/terms">Terms</a>.</p>
+      <p class="small">You&rsquo;ll go to our secure Stripe checkout. Your date isn&rsquo;t held until the deposit is paid and we confirm by email. Refunds: fully refundable if you cancel more than 14 days before your event, or if we can&rsquo;t offer your date (see <a href="/terms#deposit">Terms</a>).</p>
     </div>
 
-    <div class="notice"><strong>How dates work:</strong> we don&rsquo;t have a live calendar yet, so we check every request by hand. It&rsquo;s possible for two people to request the same date. If yours turns out to be taken, we&rsquo;ll let you know right away and refund your deposit in full.</div>
+    <div class="notice" id="deposit-rules"><strong>Deposit and refunds:</strong> we don&rsquo;t have a live calendar yet, so we check every request by hand and confirm by email. The $150 deposit holds your date and counts toward your total. It is fully refundable if you cancel more than 14 days before your event, and non-refundable within 14 days. If your date turns out to be taken, or we have to cancel, we refund everything you paid. The balance is due on or before your event date. Full details are in our <a href="/terms#deposit">Terms</a>.</div>
     <p class="note">Sales tax may apply. Questions? Call <a href="tel:+19148178018">(914) 817-8018</a>.</p>
   </div>
 </section>
@@ -162,7 +162,7 @@ var DEPOSIT_URL='https://buy.stripe.com/fZu5kC8rL97XfQO89baAw00';
 var t=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');
 t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);});
 document.getElementById('year').textContent=new Date().getFullYear();
-var f=document.getElementById('book-form'),st=document.getElementById('status'),est=document.getElementById('estimate');
+var loadedAt=Date.now(),f=document.getElementById('book-form'),st=document.getElementById('status'),est=document.getElementById('estimate');
 var d=new Date();f.event_date.min=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 var p=new URLSearchParams(location.search);if(p.get('package'))f.package.value=p.get('package');
 if(p.get('date')&&p.get('date')>=f.event_date.min)f.event_date.value=p.get('date');
@@ -174,20 +174,20 @@ if(p.get('type'))f.event_type.value=p.get('type');
 function total(){var s=f.package.selectedOptions[0],base=+(s&&s.dataset.price||0);if(!base){est.innerHTML='Estimated total: <b>choose a package</b>';f.estimated_total.value='';return}
  var t=base;f.querySelectorAll('input[name=addons]:checked').forEach(function(c){t+=+c.dataset.price});
  est.innerHTML='Estimated total: <b>$'+t+'</b> <span class="small">(before any sales tax; we\u2019ll confirm the final price)</span>';f.estimated_total.value='$'+t;}
-var INFO={Bronze:'Bronze: 3 hours, unlimited digital photos, professional lighting and template design. Self-serve, with no attendant or printed photos.',Silver:'Silver: 3 hours with an on-site attendant, unlimited instant prints and digital photos, and a standard backdrop.',Gold:'Gold: 6 hours with an attendant, unlimited instant prints, red carpet and a premium backdrop.'};
+var INFO={Bronze:'Bronze: 3 hours, unlimited digital photos, professional lighting and template design. Self-serve, with no attendant or printed photos.',Silver:'Silver: 3 hours with an on-site attendant, unlimited instant prints and digital photos, and a standard backdrop.',Gold:'Gold: 6 hours with an attendant, unlimited instant prints, red carpet and a premium backdrop.',"Drop-off":'Drop-off booth: 3 hours, no attendant, for small parties. We deliver, set up and pick it up.'};
 function info(){var v=f.package.value,el=document.getElementById('pkg-info');if(INFO[v])el.textContent=INFO[v]}
 f.addEventListener('change',function(){total();info()});total();info();
-f.addEventListener('submit',function(e){e.preventDefault();
+f.addEventListener('submit',function(e){e.preventDefault();if(f.botcheck&&f.botcheck.value){return}if(Date.now()-loadedAt<4000){st.textContent='One moment, then press Send Details again.';return}
  var btn=document.getElementById('send-btn');if(btn.disabled)return;
  btn.disabled=true;btn.textContent='Sending\u2026';st.textContent='Sending your details\u2026';
- var body=new URLSearchParams();new FormData(f).forEach(function(v,k){body.append(k,v)});
+ var data={},addons=[];new FormData(f).forEach(function(v,k){if(k==='addons'){addons.push(v)}else if(k!=='botcheck'){data[k]=v}});data.addons=addons.join(', ')||'None';
  var ac=window.AbortController?new AbortController():null,to=setTimeout(function(){ac&&ac.abort()},30000);
  function fail(){clearTimeout(to);btn.disabled=false;btn.textContent='Send Details';
-  var lines=[];new FormData(f).forEach(function(v,k){if(v&&k.charAt(0)!=='_')lines.push(k.replace(/_/g,' ')+': '+v)});
+  var lines=[];new FormData(f).forEach(function(v,k){if(v&&k!=='access_key'&&k!=='subject'&&k!=='from_name'&&k!=='botcheck')lines.push(k.replace(/_/g,' ')+': '+v)});
   var mail='mailto:info@goldenhourboothny.com?subject='+encodeURIComponent('Booking request')+'&body='+encodeURIComponent(lines.join('\n'));
   st.innerHTML='We couldn\u2019t send your details just now. Please press <b>Send Details</b> to try again, or <a href="'+mail+'">email them to us</a> or call <a href="tel:+19148178018">(914) 817-8018</a>.';}
- var opts={method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'},body:body.toString()};if(ac)opts.signal=ac.signal;
- fetch('https://formsubmit.co/ajax/info@goldenhourboothny.com',opts).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(!j||String(j.success)!=='true')throw 0;
+ var opts={method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)};if(ac)opts.signal=ac.signal;
+ fetch('https://api.web3forms.com/submit',opts).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(!j||j.success!==true)throw 0;
   clearTimeout(to);
   var u=DEPOSIT_URL+(DEPOSIT_URL.indexOf('?')<0?'?':'&')+'prefilled_email='+encodeURIComponent(f.email.value);
   var live=DEPOSIT_URL.indexOf('PLACEHOLDER')<0,pl=document.getElementById('pay-link');
@@ -198,7 +198,7 @@ f.addEventListener('submit',function(e){e.preventDefault();
   th.scrollIntoView({behavior:'smooth',block:'start'});th.focus({preventScroll:true});
  }).catch(fail);});
 </script>
-<script src="/form-validate.js" defer></script>
+<script src="/form-validate.js?v=fix1" defer></script>
 <script src="/consent.js" defer></script>
 </body>
 </html>
