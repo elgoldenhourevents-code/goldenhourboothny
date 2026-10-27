@@ -248,23 +248,38 @@ footer,.footer{background:linear-gradient(90deg,#1a0b3b,#4a1058)}
 /* book page not-included items */
 .book-prices li.no{color:rgba(185,194,214,.45);text-decoration:line-through}
 
-/* package card hover: silver (Classic) and gold (Premium), button-press feel */
-.pricing .price-card,.book-prices .card{cursor:pointer;transition:transform .18s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease}
-.pricing .price-card:not(.featured),.book-prices .card:nth-child(1){border:1px solid rgba(255,255,255,.18)}
-.pricing .price-card:not(.featured):hover,.book-prices .card:nth-child(1):hover{border-color:#d7dbe3;background:linear-gradient(160deg,rgba(215,219,227,.14),rgba(20,10,60,.55) 60%);box-shadow:0 0 0 1px #d7dbe3,0 0 22px rgba(215,219,227,.40),0 3px 8px rgba(0,0,0,.35);transform:translateY(1px) scale(.985)}
-.pricing .price-card:not(.featured):active,.book-prices .card:nth-child(1):active{transform:translateY(3px) scale(.97);box-shadow:0 0 0 1px #d7dbe3,0 0 14px rgba(215,219,227,.35),0 1px 3px rgba(0,0,0,.45)}
-.pricing .price-card.featured,.book-prices .card:nth-child(2){border:1px solid rgba(240,200,100,.55);background:linear-gradient(160deg,rgba(201,162,75,.16),rgba(20,10,60,.6) 55%)}
-.pricing .price-card.featured{box-shadow:0 0 0 2px #e6c15f,0 0 34px rgba(230,193,95,.38)}
-.pricing .price-card.featured h3,.book-prices .card:nth-child(2) h3{color:#f0c864}
-.pricing .price-card.featured .price span,.book-prices .card:nth-child(2) .price span{color:#f6d57a;text-shadow:0 0 14px rgba(240,200,100,.35)}
-.pricing .price-card.featured:hover,.book-prices .card:nth-child(2):hover{border-color:#f0c864;background:linear-gradient(160deg,rgba(240,200,100,.26),rgba(20,10,60,.6) 60%);box-shadow:0 0 0 2px #f0c864,0 0 46px rgba(240,200,100,.65),0 4px 10px rgba(0,0,0,.4);transform:translateY(1px) scale(1.005)}
-.book-prices .card:nth-child(2):hover{transform:translateY(1px) scale(.985)}
-.pricing .price-card.featured:active{transform:translateY(3px) scale(.99);box-shadow:0 0 0 2px #f0c864,0 0 30px rgba(240,200,100,.55),0 1px 4px rgba(0,0,0,.5)}
-.book-prices .card:nth-child(2):active{transform:translateY(3px) scale(.97);box-shadow:0 0 0 2px #f0c864,0 0 30px rgba(240,200,100,.55),0 1px 4px rgba(0,0,0,.5)}
-.book-prices .card:nth-child(2){box-shadow:0 0 0 1px rgba(240,200,100,.6),0 0 22px rgba(240,200,100,.25)}
+/* package tiers: bronze / silver / gold, button-press hover */
+.pricing{grid-template-columns:repeat(3,1fr);max-width:1100px;margin-inline:auto}
+@media (max-width:900px){.pricing{grid-template-columns:1fr}}
+.container .book-prices{grid-template-columns:repeat(3,1fr);width:min(1040px,92vw);position:relative;left:50%;transform:translateX(-50%)}
+@media (max-width:760px){.container .book-prices{grid-template-columns:1fr;width:100%;left:0;transform:none}}
+.container .book-prices ul{list-style:none;padding-left:0}
+.book-prices li{padding:.3rem 0}
+.book-prices li::before{content:"\2713  ";color:var(--accent);font-weight:800}
+.book-prices li.no::before{content:"\2013  ";color:rgba(185,194,214,.45)}
+.pricing .price-card,.book-prices .card{cursor:pointer;transition:transform .18s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease;border:1px solid rgba(255,255,255,.18)}
+.tier-bronze:hover{border-color:#cd7f32!important;background:linear-gradient(160deg,rgba(205,127,50,.20),rgba(20,10,60,.55) 60%)!important;box-shadow:0 0 0 1px #cd7f32,0 0 22px rgba(205,127,50,.45),0 3px 8px rgba(0,0,0,.35)!important;transform:translateY(1px) scale(.985)!important}
+.tier-bronze:active{transform:translateY(3px) scale(.97)!important;box-shadow:0 0 0 1px #cd7f32,0 0 14px rgba(205,127,50,.4),0 1px 3px rgba(0,0,0,.45)!important}
+.tier-silver:hover{border-color:#d7dbe3!important;background:linear-gradient(160deg,rgba(215,219,227,.14),rgba(20,10,60,.55) 60%)!important;box-shadow:0 0 0 1px #d7dbe3,0 0 22px rgba(215,219,227,.40),0 3px 8px rgba(0,0,0,.35)!important;transform:translateY(1px) scale(.985)!important}
+.tier-silver:active{transform:translateY(3px) scale(.97)!important;box-shadow:0 0 0 1px #d7dbe3,0 0 14px rgba(215,219,227,.35),0 1px 3px rgba(0,0,0,.45)!important}
+.tier-gold{border:1px solid rgba(240,200,100,.55)!important;background:linear-gradient(160deg,rgba(201,162,75,.16),rgba(20,10,60,.6) 55%)!important}
+.price-card.tier-gold{box-shadow:0 0 0 2px #e6c15f,0 0 34px rgba(230,193,95,.38)}
+.book-prices .tier-gold{box-shadow:0 0 0 1px rgba(240,200,100,.6),0 0 22px rgba(240,200,100,.25)}
+.tier-gold h3{color:#f0c864}
+.tier-gold .price span{color:#f6d57a;text-shadow:0 0 14px rgba(240,200,100,.35)}
+.tier-gold:hover{border-color:#f0c864!important;background:linear-gradient(160deg,rgba(240,200,100,.26),rgba(20,10,60,.6) 60%)!important;box-shadow:0 0 0 2px #f0c864,0 0 46px rgba(240,200,100,.65),0 4px 10px rgba(0,0,0,.4)!important;transform:translateY(1px) scale(.995)!important}
+.tier-gold:active{transform:translateY(3px) scale(.985)!important;box-shadow:0 0 0 2px #f0c864,0 0 30px rgba(240,200,100,.55),0 1px 4px rgba(0,0,0,.5)!important}
 @media (prefers-reduced-motion:reduce){.pricing .price-card,.book-prices .card{transition:none}}
 
 /* keep phone numbers on one line */
 a[href^="tel:"],.nav-phone{white-space:nowrap}
 .nav-links{flex-wrap:nowrap}.nav-links a{white-space:nowrap}
 @media (min-width:901px) and (max-width:1100px){.nav-links{gap:.6rem;font-size:.82rem}.nav-links .btn{padding:.5rem .75rem;font-size:.82rem}.brand-name{font-size:.95rem}.brand img{width:30px;height:auto}}
+
+/* tier accents */
+.tier-bronze{border:1px solid rgba(205,127,50,.7)!important;background:linear-gradient(160deg,rgba(205,127,50,.14),rgba(20,10,60,.58) 55%)!important}
+.tier-bronze h3{color:#e0904a}
+.tier-bronze .price span{color:#eba66b}
+.tier-silver{border:1px solid rgba(215,219,227,.65)!important;background:linear-gradient(160deg,rgba(215,219,227,.10),rgba(20,10,60,.58) 55%)!important}
+.tier-silver h3{color:#e3e6ec}
+.tier-silver .price span{color:#eef0f4}
