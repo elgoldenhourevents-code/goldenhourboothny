@@ -283,3 +283,11 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 .tier-silver{border:1px solid rgba(215,219,227,.65)!important;background:linear-gradient(160deg,rgba(215,219,227,.10),rgba(20,10,60,.58) 55%)!important}
 .tier-silver h3{color:#e3e6ec}
 .tier-silver .price span{color:#eef0f4}
+
+/* Choose-package button hovers: bronze / silver / gold */
+.btn[data-package]{transition:background .18s,border-color .18s,box-shadow .18s,color .18s,transform .12s}
+.btn[data-package="Bronze"]:hover{background:linear-gradient(180deg,#d98a3e,#b46a22);border-color:#cd7f32;color:#fff;box-shadow:0 0 0 2px rgba(205,127,50,.55),0 0 22px rgba(205,127,50,.6);transform:translateY(1px) scale(.98)}
+.btn[data-package="Silver"]:hover{background:linear-gradient(180deg,#eef0f4,#b9bfcb);border-color:#d7dbe3;color:#1b1840;box-shadow:0 0 0 2px rgba(215,219,227,.5),0 0 22px rgba(215,219,227,.55);transform:translateY(1px) scale(.98)}
+.btn[data-package="Gold"]:hover{background:linear-gradient(180deg,#f6d57a,#d9a93a);border-color:#f0c864;color:#2a1c00;box-shadow:0 0 0 2px rgba(240,200,100,.6),0 0 24px rgba(240,200,100,.7);transform:translateY(1px) scale(.98)}
+.btn[data-package]:active{transform:translateY(3px) scale(.96)}
+@media (prefers-reduced-motion:reduce){.btn[data-package]{transition:none}}
