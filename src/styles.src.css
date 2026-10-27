@@ -576,3 +576,12 @@ h1,h2,h3,.lead,.about-copy p,.owner-card p{overflow-wrap:break-word}
 .events .event:hover .ev-ico,.events .event:active .ev-ico{display:inline-flex;transform:none;animation:none;scale:1.07;color:#1a1408;background:linear-gradient(145deg,#f6d57a,#d9a03a 60%,#b8862f);border-color:#f6d57a;box-shadow:0 0 0 6px rgba(246,213,122,.12),0 8px 24px rgba(217,160,58,.35)}
 .events .event:hover h3,.events .event:active h3{color:#f6d57a}
 @media (prefers-reduced-motion:reduce){.events .event,.events .event::before,.events .event::after,.events .event .ev-ico,.events .event h3{transition:none}.events .event:hover .ev-ico{scale:1}}
+
+/* signature as vector (no font dependency) */
+.owner-card .owner-sign{font-size:0;line-height:0;opacity:1;margin:0 0 .35rem;transform:rotate(-2deg);transform-origin:right center}
+.owner-sign svg{display:inline-block;width:150px;height:auto;max-width:60%;color:#e9cd8a;overflow:visible}
+
+/* Booth NY inside the launch logo */
+.anim-logo{container-type:inline-size;margin-bottom:3.2rem}
+.al-booth{position:absolute;left:6%;width:94%;top:106%;text-align:center;font-family:var(--serif);font-weight:700;font-size:.8rem;font-size:9.5cqw;line-height:1;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:#f3bd4f;white-space:nowrap;opacity:0;animation:al-fade 1s ease-out 2.6s both,al-glow 4s ease-in-out 3.7s infinite}
+@media (max-width:900px){.anim-logo{margin-bottom:3rem}}
