@@ -5,7 +5,15 @@ links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.cla
 document.getElementById('year').textContent=new Date().getFullYear();
 const form=document.getElementById('booking-form'),status=form.querySelector('.form-status');
 // Package buttons pre-select package
-document.querySelectorAll('[data-package]').forEach(b=>b.addEventListener('click',()=>{form.package.value=b.dataset.package;}));
+document.querySelectorAll('[data-package]').forEach(b=>b.addEventListener('click',e=>{form.package.value=b.dataset.package;
+  e.preventDefault();
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const flash=()=>{form.classList.remove('flash-glow');void form.offsetWidth;form.classList.add('flash-glow');setTimeout(()=>form.classList.remove('flash-glow'),1900);};
+  document.getElementById('book').scrollIntoView({behavior:reduce?'auto':'smooth'});
+  if(reduce){flash();return;}
+  const io=new IntersectionObserver((en)=>{if(en[0].isIntersecting&&en[0].intersectionRatio>=.6){io.disconnect();clearTimeout(t);setTimeout(flash,250);}},{threshold:[.6]});
+  const t=setTimeout(()=>{io.disconnect();flash();},2500);
+  io.observe(form);}));
 // Hero date check -> prefill booking form
 document.getElementById('date-check').addEventListener('submit',e=>{e.preventDefault();
   form.event_date.value=document.getElementById('dc-date').value;form.event_type.value=document.getElementById('dc-type').value;
