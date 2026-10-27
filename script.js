@@ -87,7 +87,7 @@ document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')
   const lines=document.getElementById('est-lines'),tot=document.getElementById('est-total'),hid=document.getElementById('estimated_total');
   const promoIn=document.getElementById('promo-code'),promoBtn=document.getElementById('promo-apply'),promoMsg=document.getElementById('promo-msg');
   // Add real promo codes here, e.g. SAVE10:{type:'percent',value:10} or TAKE50:{type:'amount',value:50}
-  const PROMOS={};
+  const PROMOS={GOLDEN25:{type:'amount',value:25}};
   let applied=null;
   const money=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});
   function calc(){
