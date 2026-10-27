@@ -9,8 +9,12 @@ document.querySelectorAll('[data-package]').forEach(b=>b.addEventListener('click
   e.preventDefault();
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const flash=()=>{form.classList.remove('flash-glow');void form.offsetWidth;form.classList.add('flash-glow');setTimeout(()=>form.classList.remove('flash-glow'),1900);};
-  document.getElementById('book').scrollIntoView({behavior:reduce?'auto':'smooth'});
-  if(reduce){flash();return;}
+  if(reduce){document.getElementById('book').scrollIntoView({behavior:'auto'});flash();return;}
+  const pk=(b.dataset.package||'').toLowerCase();
+  b.classList.remove('click-flash-bronze','click-flash-silver','click-flash-gold');void b.offsetWidth;
+  b.classList.add('click-flash-'+pk);
+  setTimeout(()=>b.classList.remove('click-flash-'+pk),pk==='gold'?900:600);
+  setTimeout(()=>document.getElementById('book').scrollIntoView({behavior:'smooth'}),pk==='gold'?380:260);
   const io=new IntersectionObserver((en)=>{if(en[0].isIntersecting&&en[0].intersectionRatio>=.6){io.disconnect();clearTimeout(t);setTimeout(flash,250);}},{threshold:[.6]});
   const t=setTimeout(()=>{io.disconnect();flash();},2500);
   io.observe(form);}));

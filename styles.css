@@ -296,3 +296,12 @@ a[href^="tel:"],.nav-phone{white-space:nowrap}
 /* booking form flash after Choose buttons */
 @keyframes gh-flash{0%{box-shadow:0 0 0 0 rgba(240,200,100,0)}25%{box-shadow:0 0 0 2px rgba(240,200,100,.85),0 0 30px rgba(240,200,100,.55)}100%{box-shadow:0 0 0 0 rgba(240,200,100,0)}}
 #booking-form.flash-glow{animation:gh-flash 1.8s ease-out;border-radius:14px}
+
+/* click flashes on Choose buttons */
+@keyframes gh-cf-bronze{0%{box-shadow:0 0 0 0 rgba(205,127,50,0)}35%{background:linear-gradient(180deg,#d98a3e,#b46a22);color:#fff;border-color:#cd7f32;box-shadow:0 0 0 3px rgba(205,127,50,.7),0 0 28px rgba(205,127,50,.8)}100%{box-shadow:0 0 0 0 rgba(205,127,50,0)}}
+@keyframes gh-cf-silver{0%{box-shadow:0 0 0 0 rgba(215,219,227,0)}35%{background:linear-gradient(180deg,#eef0f4,#b9bfcb);color:#1b1840;border-color:#d7dbe3;box-shadow:0 0 0 3px rgba(215,219,227,.7),0 0 28px rgba(235,238,245,.8)}100%{box-shadow:0 0 0 0 rgba(215,219,227,0)}}
+@keyframes gh-cf-gold{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,215,110,0)}30%{transform:scale(1.1);background:linear-gradient(180deg,#fff0b0,#f0c030);color:#2a1c00;border-color:#fff0b0;box-shadow:0 0 0 4px rgba(255,225,130,.9),0 0 44px rgba(255,210,90,1),0 0 90px rgba(255,200,70,.7)}55%{transform:translateY(2px) scale(.96);background:linear-gradient(180deg,#f6d57a,#d9a93a);color:#2a1c00;box-shadow:0 0 0 3px rgba(255,225,130,.8),0 0 36px rgba(255,210,90,.9)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,215,110,0)}}
+.btn.click-flash-bronze{animation:gh-cf-bronze .55s ease-out!important}
+.btn.click-flash-silver{animation:gh-cf-silver .55s ease-out!important}
+.btn.click-flash-gold{animation:gh-cf-gold .85s cubic-bezier(.2,.8,.3,1)!important}
+@media (prefers-reduced-motion:reduce){.btn.click-flash-bronze,.btn.click-flash-silver,.btn.click-flash-gold{animation:none!important}}
