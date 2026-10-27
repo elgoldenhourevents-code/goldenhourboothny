@@ -373,3 +373,9 @@ footer,.footer{background:linear-gradient(90deg,#16171c,#4a3a1b)}
 .form .promo-row{padding:1rem 1.1rem;border:1px solid rgba(232,163,61,.3);border-radius:12px;background:rgba(232,163,61,.07);margin:.2rem 0 1rem}
 .form .promo-row label{margin-bottom:0;font-size:.95rem}
 .form .promo-msg{font-size:.9rem;margin-top:.5rem}
+
+/* Promo input: larger, high-contrast typed text */
+.form .promo-input input,#booking-form #promo-code{min-height:3.4rem;padding:.95rem 1.1rem;font-size:1.25rem;font-weight:600;color:#fff7e0;-webkit-text-fill-color:#fff7e0;caret-color:#f6d57a;background:#101116;border:2px solid rgba(232,163,61,.65);border-radius:12px;letter-spacing:.1em}
+.form .promo-input input::placeholder{color:#a9a49a;-webkit-text-fill-color:#a9a49a;font-weight:500;font-size:1.05rem;opacity:1}
+.form .promo-input input:focus{border-color:#f6d57a;box-shadow:0 0 0 3px rgba(246,213,122,.3)}
+.form .promo-input .btn{min-height:3.4rem;font-size:1.1rem;padding:.95rem 1.8rem}
