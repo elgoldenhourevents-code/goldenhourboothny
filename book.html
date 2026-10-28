@@ -145,7 +145,7 @@
       <p id="thanks-sum"></p>
       <p id="thanks-pay"><strong>Step 2:</strong> pay the $150 deposit to hold your date. The deposit comes off your final balance.</p>
       <p><a class="btn btn-lg" id="pay-link" href="#">Pay $150 Deposit</a></p>
-      <p class="small">You&rsquo;ll go to our secure Stripe checkout. Your date isn&rsquo;t held until the deposit is paid and we confirm by email. Refunds: fully refundable if you cancel more than 14 days before your event, or if we can&rsquo;t offer your date (see <a href="/terms#deposit">Terms</a>).</p>
+      <p class="small">You&rsquo;ll go to our secure Square checkout. Your date isn&rsquo;t held until the deposit is paid and we confirm by email. Refunds: fully refundable if you cancel more than 14 days before your event, or if we can&rsquo;t offer your date (see <a href="/terms#deposit">Terms</a>).</p>
     </div>
 
     <div class="notice" id="deposit-rules"><strong>Deposit and refunds:</strong> we don&rsquo;t have a live calendar yet, so we check every request by hand and confirm by email. The $150 deposit holds your date and counts toward your total. It is fully refundable if you cancel more than 14 days before your event, and non-refundable within 14 days. If your date turns out to be taken, or we have to cancel, we refund everything you paid. The balance is due on or before your event date. Full details are in our <a href="/terms#deposit">Terms</a>.</div>
@@ -164,8 +164,7 @@
   <p class="copy container">&copy; <span id="year">2026</span> Golden Hour Booth NY. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a></p>
 </footer>
 <script>
-// >>> SWAP THIS for the real Stripe Payment Link ($150 deposit) when it exists <<<
-var DEPOSIT_URL='https://buy.stripe.com/fZu5kC8rL97XfQO89baAw00';
+var DEPOSIT_URL='https://square.link/u/3O9MmOKk';
 var t=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');
 t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);});
 document.getElementById('year').textContent=new Date().getFullYear();
@@ -209,7 +208,7 @@ f.addEventListener('submit',function(e){e.preventDefault();if(f.botcheck&&f.botc
  var opts={method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)};if(ac)opts.signal=ac.signal;
  fetch('https://api.web3forms.com/submit',opts).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){if(!j||j.success!==true)throw 0;
   clearTimeout(to);
-  var u=DEPOSIT_URL+(DEPOSIT_URL.indexOf('?')<0?'?':'&')+'prefilled_email='+encodeURIComponent(f.email.value);
+  var u=DEPOSIT_URL;
   var live=DEPOSIT_URL.indexOf('PLACEHOLDER')<0,pl=document.getElementById('pay-link');
   f.hidden=true;var th=document.getElementById('thanks');th.hidden=false;
   total();var dt=new Date(f.event_date.value+'T12:00:00');document.getElementById('thanks-sum').textContent='We received your '+f.package.value+' request for '+(isNaN(dt)?f.event_date.value:dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}))+(f.estimated_total.value?' (estimated total '+f.estimated_total.value+', before tax)':'')+'.';
