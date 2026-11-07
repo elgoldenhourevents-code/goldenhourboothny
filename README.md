@@ -4,7 +4,7 @@ Static one-page site (HTML/CSS/JS, no build step). Files: `index.html`, `styles.
 Preview locally: `python3 -m http.server` in this folder, then open http://localhost:8000.
 
 ## Placeholders to replace before launch
-- [x] Phone (914) 817-8018 is already in place (nav, Book section, footer, mobile Call bar, JSON-LD).
+- [x] Phone (855) 360-7018 is already in place (nav, Book section, footer, mobile Call bar, JSON-LD).
 - [x] Email info@goldenhourboothny.com is in place (contact list, email fallback, footer, JSON-LD, FALLBACK_EMAIL in script.js).
 - [ ] Formspree form ID **YOUR_FORM_ID** (`index.html` form `action`)
 - [x] Prices set: Classic $449, Premium $649, Deluxe $849 (edit in the Packages section)
