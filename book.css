@@ -27,7 +27,7 @@
 .pkg-section .note{font-size:.86rem;margin:.6rem auto 0;max-width:760px;text-align:center}
 .mini-details summary{cursor:pointer;color:var(--accent2)}
 .mini-details p{text-align:left;margin:.4rem 0 0}
-.has-pkg .pkg-section{display:none}
+.pkg-section{display:none}
 
 /* Booking area: ~700px centered column + photo column on desktop */
 .request-section{padding:1.1rem 0 2rem;background:var(--navy2)}
