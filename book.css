@@ -1,0 +1,113 @@
+/* /book page only (linked from book.html). Scoped under .book-page / book-specific classes. */
+.book-page{--gold:#d9af62;--ivory:#fbf6ec;--ink:#2a2418;--head:"Cormorant Garamond","Playfair Display",Georgia,serif}
+.book-page h1,.book-page h2,.book-page h3{font-family:var(--head);font-weight:600;letter-spacing:.01em}
+.book-page .price span{font-family:var(--head)}
+
+/* Hero: short band with blurred real booth photo */
+.book-hero{position:relative;overflow:hidden;text-align:center;padding:1.4rem 0 1.1rem;isolation:isolate}
+.book-hero:before{content:"";position:absolute;inset:-30px;z-index:-2;background:url(/assets/our-booth-venue-800.jpg) center 35%/cover;background-image:image-set(url(/assets/our-booth-venue-800.webp) type("image/webp"),url(/assets/our-booth-venue-800.jpg) type("image/jpeg"));filter:blur(14px) saturate(1.1)}
+.book-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,23,28,.55),rgba(22,23,28,.82)),radial-gradient(ellipse at 50% 0%,rgba(217,175,98,.35),transparent 70%)}
+.book-hero h1{font-size:clamp(2rem,4.6vw,2.9rem);margin:0;color:#fff}
+.book-hero .hero-sub{margin:.15rem auto 0;color:#e6e0d2;font-size:1rem}
+.progress-hint{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem .6rem;list-style:none;padding:0;margin:.7rem 0 0}
+.progress-hint li{font-size:.9rem;font-weight:600;color:#e6e0d2;border:1px solid rgba(217,175,98,.55);border-radius:999px;padding:.22rem .8rem;background:rgba(22,23,28,.45)}
+.progress-hint li span{color:var(--gold)}
+.progress-hint li.is-current{background:var(--gold);color:#1a1200;border-color:var(--gold)}
+.progress-hint li.is-current span{color:#1a1200}
+.hero-note{margin:.45rem auto 0;max-width:600px;font-size:.82rem;color:#cfc8b8}
+
+/* Package chooser (shown when no package is selected) */
+.pkg-section{padding:1.6rem 0 1rem}
+.pkg-section .section-title{font-size:clamp(1.6rem,3vw,2rem);margin:0}
+.pkg-section .section-sub{margin:0 0 1.1rem;font-size:.92rem}
+.pkg-section .pricing{gap:1rem}
+.pkg-section .price-card{padding:1.1rem 1.2rem;display:flex;flex-direction:column}
+.pkg-section .price-card h3{margin:0;font-size:1.6rem}
+.pkg-section .tier-for{margin:0;font-size:.88rem}
+.pkg-section .price{margin:.2rem 0 .5rem}
+.pkg-section .price span{font-size:2.1rem}
+.pkg-section .price-card ul{margin:0 0 .9rem;font-size:.86rem}
+.pkg-section .price-card li{padding:.22rem 0}
+.pkg-section .pick-btn{text-align:center;padding:.55rem 1rem;background:var(--gold);border-color:var(--gold)}
+.pkg-section .note{font-size:.86rem;margin:.6rem auto 0;max-width:760px;text-align:center}
+.mini-details summary{cursor:pointer;color:var(--accent2)}
+.mini-details p{text-align:left;margin:.4rem 0 0}
+.has-pkg .pkg-section{display:none}
+
+/* Booking area: ~700px centered column + photo column on desktop */
+.request-section{padding:1.1rem 0 2rem;background:var(--navy2)}
+.book-layout{display:grid;grid-template-columns:minmax(0,700px) 230px;gap:1.5rem;justify-content:center;align-items:start}
+.book-main{min-width:0}
+
+.pkg-summary{background:rgba(217,175,98,.1);border:1px solid rgba(217,175,98,.55);border-radius:14px;padding:.75rem 1rem;margin:0 0 .8rem}
+.pkg-summary[hidden]{display:none}
+.sum-title{margin:0;font-family:var(--head);font-size:1.35rem;line-height:1.2;color:#fff}
+.sum-title strong{color:var(--gold)}
+.sum-list{display:grid;grid-template-columns:1fr 1fr;gap:.05rem 1rem;list-style:none;margin:.4rem 0 .35rem;padding:0;font-size:.86rem;color:var(--muted)}
+.sum-list li:before{content:"\2713";color:var(--gold);margin-right:.4rem;font-weight:700}
+.sum-foot{margin:0;font-size:.82rem;color:var(--muted)}
+.change-pkg{font-weight:600;color:var(--gold);white-space:nowrap}
+.back-link{margin:0 0 .5rem;font-size:.85rem}
+.back-link a{color:var(--gold)}
+.has-pkg .back-link{display:none}
+
+/* Ivory invitation card around the HoneyBook embed (embed code unchanged) */
+.invite-card{background:var(--ivory);color:var(--ink);border:1px solid var(--gold);border-radius:18px;box-shadow:0 14px 34px rgba(0,0,0,.35),0 0 0 4px rgba(217,175,98,.12);padding:1.1rem 1.4rem 1rem}
+.invite-title{margin:0 0 .3rem;text-align:center;font-size:1.55rem;color:var(--ink)}
+.invite-title:after{content:"";display:block;width:56px;height:1px;background:var(--gold);margin:.35rem auto 0}
+.invite-card .hb-wrap{min-height:120px}
+.invite-card .hb-wrap iframe{max-width:100%}
+.invite-card .small{color:#6b6250;text-align:center;margin:.4rem 0 0;font-size:.8rem}
+.invite-card a{color:#8a6a1f}
+.invite-card .btn{color:#1a1200}
+
+.trust-line{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem 1.2rem;list-style:none;padding:0;margin:.7rem 0 .5rem;font-size:.86rem;font-weight:600;color:#e6e0d2}
+.trust-line li:before{content:"\2713";color:var(--gold);margin-right:.35rem}
+
+.addon-chips{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem;margin:0 0 .5rem}
+.chips-label{font-size:.8rem;color:var(--muted);margin-right:.15rem}
+.chip{font-size:.78rem;border:1px solid rgba(217,175,98,.5);border-radius:999px;padding:.12rem .6rem;color:#e6e0d2;white-space:nowrap}
+.chip b{color:var(--gold);font-weight:700}
+
+.fine-print{border-top:1px solid rgba(255,255,255,.1);padding-top:.4rem;font-size:.84rem;color:var(--muted)}
+.fine-print summary{cursor:pointer;text-align:center;color:var(--gold);font-weight:600}
+.fine-print ul{margin:.5rem 0 .3rem;padding-left:1.1rem}
+.fine-print li{margin:.2rem 0}
+.fine-print p{margin:0;text-align:center}
+
+.book-aside{position:sticky;top:84px;display:grid;gap:.8rem}
+.aside-photo{margin:0}
+.aside-photo img{border-radius:14px;border:1px solid rgba(217,175,98,.5);aspect-ratio:3/4;object-fit:cover;width:100%}
+.aside-photo figcaption,.aside-review figcaption{font-size:.75rem;color:var(--muted);margin-top:.3rem;text-align:center}
+.aside-review{margin:0;background:var(--navy3);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:.75rem .85rem}
+.aside-review blockquote{margin:0;font-size:.8rem;line-height:1.45;color:#e6e0d2}
+.aside-review blockquote p{margin:0}
+
+.sticky-cta{display:none}
+
+@media(max-width:980px){
+  .book-layout{grid-template-columns:minmax(0,700px)}
+  .book-aside{position:static;grid-template-columns:110px 1fr;align-items:start}
+  .aside-photo img{aspect-ratio:1/1}
+}
+@media(max-width:700px){
+  .book-hero{padding:1rem 0 .8rem}
+  .hero-note{display:none}
+  .progress-hint li{font-size:.8rem;padding:.18rem .6rem}
+  .pkg-section .pricing{grid-template-columns:1fr}
+  .pkg-section .featured{transform:none}
+  .request-section{padding:.8rem 0 5rem}
+  .invite-card{padding:.85rem .7rem .8rem;border-radius:14px}
+  .sum-list{grid-template-columns:1fr}
+  .sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:50;text-align:center;background:var(--gold);color:#1a1200;font-weight:700;font-size:1.05rem;padding:.9rem 1rem;border-radius:999px;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.45);transition:opacity .2s,transform .2s}
+  .sticky-cta.is-hidden{opacity:0;transform:translateY(120%);pointer-events:none}
+}
+
+/* overrides of global section/details styles, scoped */
+.book-page #addons.addon-chips{background:none}
+.book-page .fine-print{background:transparent;border:0;border-top:1px solid rgba(255,255,255,.1);border-radius:0;padding:.2rem 0 0;margin:0}
+.book-page .fine-print summary{min-height:36px;padding:.3rem 0;justify-content:center}
+.book-page .mini-details{background:transparent;border:0;padding:0;margin:.5rem auto 0}
+.book-page .mini-details summary{min-height:32px;padding:.2rem 0;justify-content:center}
+.aside-photo img{height:auto;max-height:300px}
+@media(max-width:980px){.aside-photo img{max-height:110px}}

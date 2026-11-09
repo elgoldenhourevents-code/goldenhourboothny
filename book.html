@@ -18,22 +18,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-first-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-first.png">
 <link rel="stylesheet" href="/styles.css?v=promo1">
-<style>
-.book-hero{padding:3rem 0 1rem;text-align:center}.book-hero p{color:var(--muted);max-width:640px;margin:.5rem auto 0}
-.steps-mini{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:center;list-style:none;padding:0;margin:1.4rem 0 0;color:var(--accent2);font-weight:600;font-size:.95rem}
-.steps-mini span{display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--accent);color:#1a1200;margin-right:.4rem;font-size:.85rem}
-.book-prices{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}
-.book-prices .card{padding:1.2rem 1.4rem}.book-prices h3{margin:0}.book-prices .price{margin:.3rem 0}.book-prices ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.92rem}
-.addons.compact{grid-template-columns:1fr 1fr;margin-bottom:1.5rem}
-.fieldset{border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:.8rem 1rem 0;margin:0 0 1rem}.fieldset legend{font-weight:600;font-size:.92rem;padding:0 .4rem}
-.checks-grid{display:grid;grid-template-columns:1fr 1fr;gap:.2rem 1rem}
-.form .check{display:flex;gap:.6rem;align-items:center;font-weight:500;margin-bottom:.8rem}.form .check input{width:auto;margin:0;accent-color:var(--accent)}
-.estimate{background:rgba(232,163,61,.12);border:1px solid rgba(232,163,61,.4);border-radius:12px;padding:.9rem 1.1rem;margin:0 0 1rem}.estimate b{color:var(--accent2)}
-.notice{background:rgba(255,255,255,.06);border-left:4px solid var(--accent);border-radius:8px;padding:.9rem 1.1rem;margin:1.2rem 0;color:var(--muted);font-size:.93rem}.notice strong{color:var(--text)}
-.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
-.thanks{text-align:center}.thanks[hidden]{display:none}.thanks .btn{margin-top:.6rem}
-@media(max-width:700px){.book-prices,.addons.compact,.checks-grid{grid-template-columns:1fr}}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/book.css?v=design1">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -55,70 +43,101 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="book-page">
 <section class="book-hero">
   <div class="container">
     <h1>Book Your Date</h1>
-    <p>Compare all three packages below, then choose your package and send your event details in one form. After you submit, you&rsquo;ll get a separate link to pay the $150 deposit through Square.</p>
-    <ol class="steps-mini"><li><span>1</span>Choose a package &amp; send your details</li><li><span>2</span>Pay the $150 deposit (Square)</li><li><span>3</span>We confirm your date</li></ol>
+    <p class="hero-sub">Send your event details in one short form. We reply within 24 hours.</p>
+    <ol class="progress-hint" aria-label="How booking works">
+      <li class="is-current"><span>Step 1:</span> Send your details</li>
+      <li><span>Step 2:</span> Pay the $150 deposit</li>
+    </ol>
+    <p class="hero-note">After you submit, you&rsquo;ll get a separate link to pay the deposit through Square. We confirm your date through HoneyBook.</p>
   </div>
 </section>
 
-<section id="packages" class="section section-alt">
+<section id="packages" class="pkg-section">
   <div class="container">
-    <h2 class="section-title">Packages &amp; Pricing</h2>
+    <h2 class="section-title">Choose a package</h2>
     <p class="section-sub">Every package includes delivery, setup &amp; breakdown, props and a digital gallery.</p>
 <div class="grid grid-3 pricing">
-      <div class="card price-card tier-bronze">
+      <div class="card price-card tier-bronze" data-pkg="bronze">
         <h3>Bronze</h3><p class="tier-for">Budget-friendly digital booth</p>
         <p class="price"><span>$300</span> / 3 hrs</p>
-        <ul class="checks"><li>3 hours of photo booth</li><li class="no"><span class="sr-only">Not included: </span>On-site attendant</li><li class="no"><span class="sr-only">Not included: </span>Unlimited physical instant prints</li><li>Unlimited digital photos</li><li>Professional lighting</li><li class="no"><span class="sr-only">Not included: </span>Red carpet</li><li>Template design</li><li>Setup &amp; breakdown of all equipment</li><li>Text &amp; email QR code</li><li>Props</li></ul>
+        <ul class="checks"><li class="key">3 hours of photo booth</li><li class="no"><span class="sr-only">Not included: </span>On-site attendant</li><li class="no"><span class="sr-only">Not included: </span>Unlimited physical instant prints</li><li class="key">Unlimited digital photos</li><li class="key">Professional lighting</li><li class="no"><span class="sr-only">Not included: </span>Red carpet</li><li class="key">Template design</li><li>Setup &amp; breakdown of all equipment</li><li class="key">Text &amp; email QR code</li><li>Props</li></ul>
+        <a class="btn pick-btn" href="#bronze">Choose Bronze</a>
       </div>
-      <div class="card price-card tier-silver">
+      <div class="card price-card tier-silver" data-pkg="silver">
         <h3>Silver</h3><p class="tier-for">Birthdays &amp; small parties</p>
         <p class="price"><span>$550</span> / 3 hrs</p>
-        <ul class="checks"><li>3 hours of photo booth</li><li>On-site attendant</li><li>Unlimited physical instant prints</li><li>Unlimited digital photos</li><li>Professional lighting</li><li class="no"><span class="sr-only">Not included: </span>Red carpet</li><li>Template design</li><li>Setup &amp; breakdown of all equipment</li><li>Text &amp; email QR code</li><li>Props &amp; standard backdrop</li></ul>
+        <ul class="checks"><li class="key">3 hours of photo booth</li><li class="key">On-site attendant</li><li class="key">Unlimited physical instant prints</li><li class="key">Unlimited digital photos</li><li>Professional lighting</li><li class="no"><span class="sr-only">Not included: </span>Red carpet</li><li>Template design</li><li>Setup &amp; breakdown of all equipment</li><li>Text &amp; email QR code</li><li class="key">Props &amp; standard backdrop</li></ul>
+        <a class="btn pick-btn" href="#silver">Choose Silver</a>
       </div>
-      <div class="card price-card tier-gold featured">
+      <div class="card price-card tier-gold featured" data-pkg="gold">
         <span class="badge">&#9733; Most Popular</span>
         <h3>Gold</h3><p class="tier-for">Weddings &amp; milestones</p>
         <p class="price"><span>$850</span> / 6 hrs</p>
-        <ul class="checks"><li>6 hours of photo booth</li><li>On-site attendant</li><li>Unlimited physical instant prints</li><li>Unlimited digital photos</li><li>Professional lighting</li><li>Red carpet</li><li>Template design</li><li>Setup &amp; breakdown of all equipment</li><li>Text &amp; email QR code</li><li>Props &amp; premium backdrop</li></ul>
+        <ul class="checks"><li class="key">6 hours of photo booth</li><li class="key">On-site attendant</li><li class="key">Unlimited physical instant prints</li><li>Unlimited digital photos</li><li>Professional lighting</li><li class="key">Red carpet</li><li>Template design</li><li>Setup &amp; breakdown of all equipment</li><li>Text &amp; email QR code</li><li class="key">Props &amp; premium backdrop</li></ul>
+        <a class="btn pick-btn" href="#gold">Choose Gold</a>
       </div>
     </div>
-    <p class="note"><strong>Silver or Gold?</strong> Both include an on-site attendant and unlimited instant prints. Gold doubles the time to 6 hours (Silver is 3), adds the red carpet and upgrades to a premium backdrop. Choose Silver for parties and short events; choose Gold for weddings and long evenings. Gold also costs less per hour (about $142 an hour, versus $183 for Silver).</p>
+    <details class="note mini-details"><summary><strong>Silver or Gold?</strong></summary><p>Both include an on-site attendant and unlimited instant prints. Gold doubles the time to 6 hours (Silver is 3), adds the red carpet and upgrades to a premium backdrop. Choose Silver for parties and short events; choose Gold for weddings and long evenings. Gold also costs less per hour (about $142 an hour, versus $183 for Silver).</p></details>
     <p class="note">Sales tax may apply. A $150 deposit holds your date (<a href="/terms#deposit">refund rules</a>).</p>
   </div>
 </section>
 
-<section id="addons" class="section">
-  <div class="container">
-    <h2 class="section-title">Add-Ons</h2>
-    <p class="section-sub">Make it yours. Add to any package.</p>
-    <ul class="addons">
-      <li><span class="ad-ico" aria-hidden="true"><svg class="gi" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"/><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg></span><div><h3>Extra hour</h3><p>Keep the fun going.</p></div><b>$99</b></li>
-      <li><span class="ad-ico" aria-hidden="true"><svg class="gi" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M194.82,151.43l-55.09,20.3-20.3,55.09a7.92,7.92,0,0,1-14.86,0l-20.3-55.09-55.09-20.3a7.92,7.92,0,0,1,0-14.86l55.09-20.3,20.3-55.09a7.92,7.92,0,0,1,14.86,0l20.3,55.09,55.09,20.3A7.92,7.92,0,0,1,194.82,151.43Z" opacity="0.2"/><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></svg></span><div><h3>Premium backdrop</h3><p>Shimmer, greenery or flower wall.</p></div><b>$175</b></li>
-      <li><span class="ad-ico" aria-hidden="true"><svg class="gi" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M194.82,151.43l-55.09,20.3-20.3,55.09a7.92,7.92,0,0,1-14.86,0l-20.3-55.09-55.09-20.3a7.92,7.92,0,0,1,0-14.86l55.09-20.3,20.3-55.09a7.92,7.92,0,0,1,14.86,0l20.3,55.09,55.09,20.3A7.92,7.92,0,0,1,194.82,151.43Z" opacity="0.2"/><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></svg></span><div><h3>Standard backdrop</h3></div><b>$125</b></li>
-      <li><span class="ad-ico" aria-hidden="true"><svg class="gi" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232,56V200H160a32,32,0,0,0-32,32V88a32,32,0,0,1,32-32Z" opacity="0.2"/><path d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64ZM160,88h40a8,8,0,0,1,0,16H160a8,8,0,0,1,0-16Zm48,40a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,128Zm0,32a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,160Z"/></svg></span><div><h3>Scrapbook guest book</h3><p>A print-and-sign keepsake album.</p></div><b>$149</b></li>
-
-    </ul>
-  </div>
-</section>
-
-<section id="request" class="section section-alt">
-  <div class="container narrow">
-    <h2 class="section-title">Choose your package &amp; send your details</h2>
-    <p class="section-sub">Pick Bronze, Silver or Gold in the form below.</p>
-    <div class="card hb-wrap">
+<section id="request" class="request-section">
+  <div class="container book-layout">
+    <div class="book-main">
+      <div class="pkg-summary" id="pkg-summary" hidden aria-live="polite">
+        <p class="sum-title">You&rsquo;ve selected <strong data-sum="name"></strong>, <strong data-sum="price"></strong>, <span data-sum="hours"></span></p>
+        <ul class="sum-list" data-sum="list"></ul>
+        <p class="sum-foot">Pick <strong data-sum="name2"></strong> in the form&rsquo;s package field too. Sales tax may apply. <a class="change-pkg" href="#packages">Change package</a></p>
+      </div>
+      <p class="back-link" id="back-link"><a href="#packages">&larr; Back to packages</a></p>
+      <div class="invite-card">
+        <h2 class="invite-title">Send your details</h2>
+        <div class="hb-wrap">
       <div class="hb-p-6ae0307c4e1bafda032e0951-2"></div>
       <img height="1" width="1" style="display:none" alt="" src="https://www.honeybook.com/p.png?pid=6ae0307c4e1bafda032e0951">
       <noscript><p><a class="btn" href="https://goldenhourny.hbportal.co/public/6aef588bcb7efebc2d655705">Open the booking form</a></p></noscript>
     </div>
     <p class="small">Form not showing? <a href="https://goldenhourny.hbportal.co/public/6aef588bcb7efebc2d655705" target="_blank" rel="noopener">Open the booking form in a new tab</a>.</p>
-    <p class="small" id="promo-note"><strong>First-time booker with a promo code?</strong> Enter it in the form&rsquo;s promo code field. A valid first-time code takes $25 off your package total (not the $150 deposit); we apply it when we confirm your final price.</p>
-    <div class="notice" id="deposit-rules"><strong>Deposit and refunds:</strong> sending the form does not reserve your date, and there is no automatic availability guarantee. Your date is reserved only once we confirm your booking through HoneyBook. The $150 deposit is paid separately through Square and counts toward your total. It is fully refundable if you cancel more than 14 days before your event, and non-refundable within 14 days. If your date turns out to be taken, or we have to cancel, we refund everything you paid. The balance is due on or before your event date. Full details are in our <a href="/terms#deposit">Terms</a>.</div>
+      </div>
+      <ul class="trust-line" aria-label="Why book with us">
+        <li>Serving the Hudson Valley and Westchester</li>
+        <li>Reply within 24 hours</li>
+      </ul>
+      <div class="addon-chips" id="addons">
+        <span class="chips-label">Add in the form:</span>
+        <span class="chip">Extra hour <b>$99</b></span>
+        <span class="chip">Premium backdrop <b>$175</b></span>
+        <span class="chip">Standard backdrop <b>$125</b></span>
+        <span class="chip">Scrapbook guest book <b>$149</b></span>
+      </div>
+      <details class="fine-print" id="deposit-rules">
+        <summary>Deposit, refunds &amp; promo codes</summary>
+        <ul id="promo-note">
+          <li>Sending the form does not reserve your date, and there is no automatic availability guarantee. Your date is reserved only once we confirm your booking through HoneyBook.</li>
+          <li>The $150 deposit is paid separately through Square and counts toward your total. It is fully refundable if you cancel more than 14 days before your event and non-refundable within 14 days; if your date is taken or we have to cancel, we refund everything you paid. The balance is due on or before your event date.</li>
+          <li>First-time booker with a promo code? Enter it in the form&rsquo;s promo code field. A valid first-time code takes $25 off your package total (not the $150 deposit); we apply it when we confirm your final price.</li>
+        </ul>
+        <p><a href="/terms#deposit">Full terms</a></p>
+      </details>
+    </div>
+    <aside class="book-aside" aria-label="Our booth">
+      <figure class="aside-photo">
+        <picture><source type="image/webp" srcset="/assets/our-booth-venue-480.webp 480w, /assets/our-booth-venue-800.webp 800w" sizes="240px"><img src="/assets/our-booth-venue-800.jpg" alt="The Golden Hour Booth NY photo booth set up at an event venue, with print strips and markers on the table" width="800" height="1126" loading="lazy" decoding="async"></picture>
+        <figcaption>Our booth at a real event</figcaption>
+      </figure>
+      <figure class="aside-review">
+        <blockquote><p>&ldquo;Totally speechless! Lester was amazing from start to finish. He was professional, on time &amp; made the experience so much fun! Definitely a 5 star service all around! I would 100% recommend Golden Hour Booth NY to anyone who is looking to capture the fun, beautiful, and unforgettable memories at their special event.&rdquo;</p></blockquote>
+        <figcaption>&mdash; Viviana &middot; Verified customer review &middot; Google</figcaption>
+      </figure>
+    </aside>
   </div>
 </section>
+<a class="sticky-cta" id="sticky-cta" href="#request">Send your details</a>
 </main>
 
 <footer class="footer">
@@ -137,6 +156,35 @@ document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 <script>
 (function(h,b,s,n,i,p,e,t){h._HB_=h._HB_||{};h._HB_.pid=i;t=b.createElement(s);t.type="text/javascript";t.async=!0;t.src=n;e=b.getElementsByTagName(s)[0];e.parentNode.insertBefore(t,e);})(window,document,"script","https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js","6ae0307c4e1bafda032e0951");
+</script>
+<script>
+(function(){
+  var P=['bronze','silver','gold'],root=document.documentElement,sum=document.getElementById('pkg-summary');
+  function q(a){return sum.querySelector('[data-sum="'+a+'"]');}
+  function fill(k){
+    var c=document.querySelector('.price-card[data-pkg="'+k+'"]');if(!c)return false;
+    var name=c.querySelector('h3').textContent,price=c.querySelector('.price span').textContent;
+    var hrs=(c.querySelector('.price').textContent.split('/')[1]||'').trim().replace(/hrs?$/,'hours');
+    q('name').textContent=name;q('name2').textContent=name;q('price').textContent=price;q('hours').textContent=hrs;
+    var ul=q('list');ul.innerHTML='';
+    c.querySelectorAll('li.key').forEach(function(li){var n=document.createElement('li');n.textContent=li.textContent;ul.appendChild(n);});
+    return true;
+  }
+  function apply(nav){
+    var h=location.hash.slice(1).toLowerCase();
+    if(P.indexOf(h)>-1&&fill(h)){root.classList.add('has-pkg');sum.hidden=false;
+      if(nav)document.getElementById('request').scrollIntoView({behavior:'smooth'});}
+    else if(h==='packages'){root.classList.remove('has-pkg');sum.hidden=true;
+      if(nav)document.getElementById('packages').scrollIntoView({behavior:'smooth'});}
+  }
+  apply(false);
+  document.querySelectorAll('a[href="#packages"]').forEach(function(a){a.addEventListener('click',function(){if(location.hash==='#packages'){setTimeout(function(){apply(true);},0);}});});
+  window.addEventListener('hashchange',function(){apply(true);});
+  var cta=document.getElementById('sticky-cta'),card=document.querySelector('.invite-card');
+  if(cta&&card&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){cta.classList.toggle('is-hidden',e[0].isIntersecting);}).observe(card);
+  }
+})();
 </script>
 <script src="/consent.js" defer></script>
 </body>
