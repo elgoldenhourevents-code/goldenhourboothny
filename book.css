@@ -31,7 +31,7 @@
 
 /* Booking area: ~700px centered column + photo column on desktop */
 .request-section{padding:1.1rem 0 2rem;background:var(--navy2)}
-.book-layout{display:grid;grid-template-columns:minmax(0,700px) 230px;gap:1.5rem;justify-content:center;align-items:start}
+.book-layout{display:grid;grid-template-columns:minmax(0,700px);gap:1.5rem;justify-content:center;align-items:start}
 .book-main{min-width:0}
 
 .pkg-summary{background:var(--navy3);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:.75rem 1rem;margin:0 0 .8rem}
