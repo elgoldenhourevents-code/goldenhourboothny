@@ -27,3 +27,4 @@
 .lens{position:absolute;top:14px;right:14px;width:58px;height:58px;z-index:2;pointer-events:none;filter:drop-shadow(0 6px 16px rgba(0,0,0,.45)) drop-shadow(0 0 10px rgba(232,163,61,.2))}
 .lens svg{width:100%;height:100%;display:block}
 @media(min-width:1240px){.lens{position:fixed;top:50%;right:10px;width:64px;height:64px;margin-top:-32px;z-index:40;opacity:.92}}
+@media(max-width:1239px){.lens{position:fixed;top:auto;bottom:calc(90px + env(safe-area-inset-bottom));right:10px;width:48px;height:48px;z-index:40;opacity:.9}}
